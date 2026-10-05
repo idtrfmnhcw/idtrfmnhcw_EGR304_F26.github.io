@@ -46,4 +46,4 @@ distributed to the microcontroller, user controls, sensors, LEDs, and buzzer.
 
 ## Block Diagram
 
-![User Controls and Safety Individual Block Diagram](<img width="1405" height="1151" alt="fb38f136-ddee-4fbe-9198-e43db79c7a91" src="https://github.com/user-attachments/assets/e129c424-e970-4cf5-b4b5-c6422cafdd48" />)
+![User Controls and Safety Individual Block Diagram](fb38f136-ddee-4fbe-9198-e43db79c7a91.jpg)
