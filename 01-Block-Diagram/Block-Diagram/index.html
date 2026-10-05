@@ -90,7 +90,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#individual-block-diagram" class="md-skip">
+        <a href="#overview" class="md-skip">
           Skip to content
         </a>
       
@@ -466,8 +466,6 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
-        
-      
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
           
@@ -495,8 +493,6 @@
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
-  
-    
   
   
     <label class="md-nav__title" for="__toc">
@@ -796,8 +792,6 @@
   
   
   
-    
-  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -846,41 +840,27 @@
   
 
 
-<h1 id="individual-block-diagram">Individual Block Diagram</h1>
+  <h1>Individual Block Diagram</h1>
+
 <h2 id="overview">Overview</h2>
-<p>This block diagram describes the <strong>User Controls &amp; Safety subsystem</strong> of the project.</p>
-<p>The subsystem is controlled by a <strong>Microchip PIC18F57Q43 Curiosity Nano</strong>. 
-It receives user inputs, monitors system control signals, and provides visual 
-and audible status indications.</p>
-<p>The main sensors and user inputs include:</p>
+<p>This block diagram describes the User Controls &amp; Safety subsystem of the project.</p>
+<p>The subsystem uses a Microchip PIC18F57Q43 Curiosity Nano to process user inputs and provide system safety and status outputs.</p>
+<p>The main user inputs and sensors include:</p>
 <ul>
-<li><strong>E-Stop Button</strong> – digital safety input</li>
-<li><strong>Start / Pause Button</strong> – digital user input</li>
-<li><strong>Speed Knob (Potentiometer)</strong> – analog speed command input</li>
+<li>E-Stop Button</li>
+<li>Start / Pause Button</li>
+<li>Speed Knob (Potentiometer)</li>
 </ul>
-<p>The main actuators and status outputs include:</p>
+<p>The main actuators and indicators include:</p>
 <ul>
-<li><strong>Green LED</strong> – indicates normal running status</li>
-<li><strong>Red LED</strong> – indicates a fault or E-Stop condition</li>
-<li><strong>Buzzer</strong> – provides an audible warning</li>
+<li>Green LED for run status</li>
+<li>Red LED for fault or E-Stop indication</li>
+<li>Buzzer for audible warning</li>
 </ul>
-<p>The subsystem communicates with the other project subsystems through 
-<strong>Connector 1</strong>, which contains digital signals, analog signals, and ground.</p>
-<p>The primary inter-system signals are:</p>
-<ul>
-<li>SAFE_OK</li>
-<li>RUN_REQ</li>
-<li>GRIP_CMD</li>
-<li>OBJ_HELD</li>
-<li>ARM_IN_POS</li>
-<li>SPEED_SET</li>
-<li>GRIP_FORCE</li>
-<li>GND</li>
-</ul>
-<p>Power for the subsystem is provided through the project power system and 
-distributed to the microcontroller, user controls, sensors, LEDs, and buzzer.</p>
+<p>The subsystem communicates with other project subsystems through Connector 1 using digital and analog signals.</p>
+<p>The primary inter-system signals include SAFE_OK, RUN_REQ, GRIP_CMD, OBJ_HELD, ARM_IN_POS, SPEED_SET, GRIP_FORCE, and GND.</p>
 <h2 id="block-diagram">Block Diagram</h2>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="img width=&quot;1405&quot; height=&quot;1151&quot; alt=&quot;fb38f136-ddee-4fbe-9198-e43db79c7a91&quot; src=&quot;https://github.com/user-attachments/assets/e129c424-e970-4cf5-b4b5-c6422cafdd48&quot; /" data-desc-position="bottom"><img alt="User Controls and Safety Individual Block Diagram" src="img width=&quot;1405&quot; height=&quot;1151&quot; alt=&quot;fb38f136-ddee-4fbe-9198-e43db79c7a91&quot; src=&quot;https://github.com/user-attachments/assets/e129c424-e970-4cf5-b4b5-c6422cafdd48&quot; /"></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../fb38f136-ddee-4fbe-9198-e43db79c7a91.jpg" data-desc-position="bottom"><img alt="User Controls and Safety Individual Block Diagram" src="../fb38f136-ddee-4fbe-9198-e43db79c7a91.jpg"></a></p>
 
 
 
