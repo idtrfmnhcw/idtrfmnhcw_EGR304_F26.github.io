@@ -1,48 +1,31 @@
 ---
 title: Individual Block Diagram
 tags:
-  - Block Diagram
-  - EGR304
+- Block Diagram
+- EGR304
 ---
-
-# Individual Block Diagram
 
 ## Overview
 
-This block diagram describes the **User Controls & Safety subsystem** of the project.
+This block diagram describes the User Controls & Safety subsystem of the project.
 
-The subsystem is controlled by a **Microchip PIC18F57Q43 Curiosity Nano**. 
-It receives user inputs, monitors system control signals, and provides visual 
-and audible status indications.
+The subsystem uses a Microchip PIC18F57Q43 Curiosity Nano to process user inputs and provide system safety and status outputs.
 
-The main sensors and user inputs include:
+The main user inputs and sensors include:
 
-- **E-Stop Button** – digital safety input
-- **Start / Pause Button** – digital user input
-- **Speed Knob (Potentiometer)** – analog speed command input
+* E-Stop Button
+* Start / Pause Button
+* Speed Knob (Potentiometer)
 
-The main actuators and status outputs include:
+The main actuators and indicators include:
 
-- **Green LED** – indicates normal running status
-- **Red LED** – indicates a fault or E-Stop condition
-- **Buzzer** – provides an audible warning
+* Green LED for run status
+* Red LED for fault or E-Stop indication
+* Buzzer for audible warning
 
-The subsystem communicates with the other project subsystems through 
-**Connector 1**, which contains digital signals, analog signals, and ground.
+The subsystem communicates with other project subsystems through Connector 1 using digital and analog signals.
 
-The primary inter-system signals are:
-
-- SAFE_OK
-- RUN_REQ
-- GRIP_CMD
-- OBJ_HELD
-- ARM_IN_POS
-- SPEED_SET
-- GRIP_FORCE
-- GND
-
-Power for the subsystem is provided through the project power system and 
-distributed to the microcontroller, user controls, sensors, LEDs, and buzzer.
+The primary inter-system signals include SAFE_OK, RUN_REQ, GRIP_CMD, OBJ_HELD, ARM_IN_POS, SPEED_SET, GRIP_FORCE, and GND.
 
 ## Block Diagram
 
