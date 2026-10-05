@@ -1,24 +1,49 @@
 ---
-title: Individal Block Diagram
+title: Individual Block Diagram
 tags:
-- tag1
-- tag2
+  - Block Diagram
+  - EGR304
 ---
 
+# Individual Block Diagram
+
 ## Overview
-This needs to be updated with a brief purpose for having the block diagram.
-Things to mention are:
-* power levels
-* sensor
-* Actuator
-* team connections
-* Power source
-* ...
 
-To get some initial formatting help, one can view ["here"](https://embedded-systems-design.github.io/EGR304DataSheetTemplate/Appendix/basic-markdown-examples/) some basic techniques.
+This block diagram describes the **User Controls & Safety subsystem** of the project.
 
+The subsystem is controlled by a **Microchip PIC18F57Q43 Curiosity Nano**. 
+It receives user inputs, monitors system control signals, and provides visual 
+and audible status indications.
 
-## Example Block Diagram 
-Showing an example of how to import a screenshot of the block diagram created outside of git and brought into a page.
+The main sensors and user inputs include:
 
-![Example of Indivial Block diagram ](individual-block-diagram.png)
+- **E-Stop Button** – digital safety input
+- **Start / Pause Button** – digital user input
+- **Speed Knob (Potentiometer)** – analog speed command input
+
+The main actuators and status outputs include:
+
+- **Green LED** – indicates normal running status
+- **Red LED** – indicates a fault or E-Stop condition
+- **Buzzer** – provides an audible warning
+
+The subsystem communicates with the other project subsystems through 
+**Connector 1**, which contains digital signals, analog signals, and ground.
+
+The primary inter-system signals are:
+
+- SAFE_OK
+- RUN_REQ
+- GRIP_CMD
+- OBJ_HELD
+- ARM_IN_POS
+- SPEED_SET
+- GRIP_FORCE
+- GND
+
+Power for the subsystem is provided through the project power system and 
+distributed to the microcontroller, user controls, sensors, LEDs, and buzzer.
+
+## Block Diagram
+
+![User Controls and Safety Individual Block Diagram](<img width="1405" height="1151" alt="fb38f136-ddee-4fbe-9198-e43db79c7a91" src="https://github.com/user-attachments/assets/e129c424-e970-4cf5-b4b5-c6422cafdd48" />)
