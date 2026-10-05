@@ -11,7 +11,7 @@ This block diagram describes the User Controls & Safety subsystem of the project
 
 The subsystem uses a Microchip PIC18F57Q43 Curiosity Nano to process user inputs and provide system safety and status outputs.
 
-The main user inputs and sensors include:
+The main user-control inputs include:
 
 * E-Stop Button
 * Start / Pause Button
@@ -22,6 +22,8 @@ The main actuators and indicators include:
 * Green LED for run status
 * Red LED for fault or E-Stop indication
 * Buzzer for audible warning
+
+The subsystem receives its required power from the project power distribution system and distributes the appropriate supply voltage to the microcontroller and user-interface components.
 
 The subsystem communicates with other project subsystems through Connector 1 using digital and analog signals.
 
