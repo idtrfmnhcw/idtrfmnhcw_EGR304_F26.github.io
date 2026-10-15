@@ -1,22 +1,45 @@
+
 ---
 title: Power Budget
 ---
 
 ## Overview
-Write a overview of what you did and why you did a Power Budget.
 
-> Capture your power budge as a image to display. Take time to get clean breaks and a well organized layout.
+The purpose of this power budget is to evaluate the
+electrical power requirements of the User Controls
+& Safety subsystem.
 
-![budget1](budgetPg1.png){style width:"350" height:"300;"}
+This subsystem includes a PIC18F57Q43 microcontroller,
+emergency stop and start/pause buttons, a speed control
+potentiometer, status indicator LEDs, and an audible
+warning buzzer.
 
-![budget2](budgetPg2.png){style width:"350" height:"300;"}
+According to the project requirements, the subsystem
+uses a 9V external DC power supply and a 5V linear
+voltage regulator.
 
-![budget3](budgetPg3.png){style width:"350" height:"300;"}
+The power budget will be used to estimate the maximum
+current consumption of each component, determine the
+total power requirements, and verify that the selected
+voltage regulator and external power supply can safely
+support the subsystem.
+
+The calculations will also include a 25% current safety
+margin and an evaluation of the voltage regulator's
+power dissipation.
+
+### Power Budget Calculations
+
+The completed power budget tables and calculations
+will be inserted below.
 
 ## Conclusions
 
-From the prepare Power Budget, .....
+The final conclusions will be completed after the
+power consumption, power supply capacity, and regulator
+thermal calculations have been verified.
 
-## Resouces
+## Resources
 
-The power budget as a PDF download is available [*here*](PowerBudgetExample.pdf), and a Microsoft Excel Sheet [*here*](PowerBudgetExample.xlsx).
+The completed Power Budget PDF and Microsoft Excel
+spreadsheet will be provided here.
