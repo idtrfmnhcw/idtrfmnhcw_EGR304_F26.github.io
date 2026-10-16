@@ -130,7 +130,9 @@ The final driver circuit and its output waveform will be verified during schemat
 
 ## 4. Power Source and Voltage Regulation Selection
 
-The User Controls & Safety subsystem requires a stable 5V power supply to operate the PIC18F57Q43 microcontroller and its peripheral components.
+
+The User Controls & Safety subsystem uses two separate power sources. The PIC18F57Q43 Curiosity Nano and its associated user interface components operate from USB power, while a 9V external DC adapter and a 5V linear regulator supply the external buzzer circuit.
+
 
 According to the EGR304 project requirements, each individual subsystem must include a 5V linear voltage regulator and a barrel jack connection for a 9V external power supply.
 
@@ -154,7 +156,13 @@ Three 5V linear voltage regulators were evaluated based on electrical characteri
 
 **Rationale:** The STMicroelectronics L7805CV was selected because it provides a cost-effective and straightforward method for converting the required 9V input supply into a regulated 5V output.
 
-The selected regulator supports a fixed 5V output and has a rated current capacity of up to 1.5A, subject to appropriate thermal management. This provides useful current capacity for the PIC18F57Q43 microcontroller and the subsystem's peripheral devices.
+
+The selected regulator provides a fixed 5V output and has a rated current capacity of up to 1.5A, subject to appropriate thermal management.
+
+In the current design, the PIC18F57Q43 Curiosity Nano is powered separately through USB, while the L7805CV supplies the external buzzer circuit and its proposed minimum-load resistor.
+
+This arrangement provides regulated power for the externally powered components while keeping the microcontroller's USB supply separate from the external 5V power rail.
+
 
 Compared with the L78M05CV, the L7805CV provides a higher rated output current at a slightly lower unit cost.
 
@@ -195,3 +203,94 @@ Compared with the Pololu 1A adapter, Option 3 offers a higher rated current capa
 The higher current rating does not mean that the subsystem will continuously draw 2A. Actual current consumption depends on the connected components, while the linear regulator's safe output current will also depend on thermal conditions.
 
 Therefore, Option 3 provides a practical external power source for the subsystem. The final selection will be confirmed after completing the power budget, verifying the barrel jack dimensions, and calculating regulator power dissipation.
+
+
+---
+
+## 5. Microcontroller and Pin Assignment
+
+### 5.1 Microcontroller Information
+
+The User Controls & Safety subsystem uses the Microchip PIC18F57Q43 Curiosity Nano development board as the main controller.
+
+The microcontroller is responsible for reading user inputs, controlling status indicators, generating PWM signals for the audible warning system, and communicating with other subsystems through the team connector.
+
+The microcontroller is powered through USB, while the external buzzer circuit is powered by a separate 5V linear voltage regulator.
+
+*Table 6: Microcontroller Information*
+
+| **Parameter** | **Description** |
+| --- | --- |
+| Manufacturer | Microchip Technology |
+| Microcontroller | PIC18F57Q43 |
+| Development Board | PIC18F57Q43 Curiosity Nano |
+| Target Voltage | 5V |
+| Clock Source | HFINTOSC |
+| System Clock | 64 MHz |
+| Clock Divider | 1 |
+| Power Source | USB |
+| Digital Interfaces | GPIO and PWM |
+| Analog Interfaces | ADC and DAC |
+| Subsystem | User Controls & Safety |
+
+### 5.2 Microcontroller Pin Assignment
+
+The following table summarizes the proposed microcontroller pin assignments based on the individual block diagram.
+
+*Table 7: PIC18F57Q43 Pin Assignment*
+
+| **PIC Pin** | **Signal Name** | **Direction** | **Function** |
+| --- | --- | --- | --- |
+| RB0 | E_STOP | Digital Input | Emergency stop button |
+| RB1 | START_PAUSE | Digital Input | Start/Pause button |
+| RA0/ANA0 | SPEED_KNOB | Analog Input | Speed control potentiometer |
+| RB2 | GREEN_LED | Digital Output | Normal operation indicator |
+| RB3 | RED_LED | Digital Output | Fault/Emergency stop indicator |
+| RB4 | BUZZER_PWM | PWM Output | Audible warning control |
+| RD0 | SAFE_OK | Digital Output | Safety status signal |
+| RD1 | RUN_REQ | Digital Output | System run request |
+| RD2 | GRIP_CMD | Digital Output | Gripper control command |
+| RD3 | OBJ_HELD | Digital Input | Object detection feedback |
+| RD4 | ARM_IN_POS | Digital Input | Arm position feedback |
+| RA2/DAC1 | SPEED_SET | Analog Output | Speed command to other subsystems |
+| RA1/ANA1 | GRIP_FORCE | Analog Input | Gripper force feedback |
+
+These assignments are based on the current individual block diagram. The final physical pin connections and peripheral configurations will be verified during schematic design and MPLAB Code Configurator setup.
+
+### 5.3 Team Connector Pin Assignment
+
+The User Controls & Safety subsystem communicates with other team subsystems through an 8-pin connector.
+
+The connector includes digital control signals, analog signals, and a common ground connection.
+
+*Table 8: Team Connector Pin Assignment*
+
+| **Connector Pin** | **Signal Name** | **PIC Pin** | **Direction** | **Signal Type** |
+| --- | --- | --- | --- | --- |
+| 1 | SAFE_OK | RD0 | Output | Digital |
+| 2 | RUN_REQ | RD1 | Output | Digital |
+| 3 | GRIP_CMD | RD2 | Output | Digital |
+| 4 | OBJ_HELD | RD3 | Input | Digital |
+| 5 | ARM_IN_POS | RD4 | Input | Digital |
+| 6 | SPEED_SET | RA2/DAC1 | Output | Analog |
+| 7 | GRIP_FORCE | RA1/ANA1 | Input | Analog |
+| 8 | GND | System GND | Ground | Ground |
+
+The connector assignments follow the current subsystem block diagram and will be confirmed with the team before final PCB design.
+
+The connector ground provides a common reference for digital and analog communication between the subsystems.
+
+### 5.4 Design Considerations
+
+The final PCB and firmware design must verify the following:
+
+- Digital input pins are configured with appropriate pull-up or pull-down resistors.
+- Analog input signals remain within the microcontroller's permitted voltage range.
+- PWM output is correctly configured through the microcontroller's peripheral pin selection system.
+- The selected buzzer driver supports the required load and control signal.
+- The USB-powered microcontroller and externally powered buzzer circuit share a common ground without directly connecting their separate 5V supply outputs.
+- The emergency stop function is evaluated for the required safety behavior. A software-only emergency stop signal must not be treated as a guaranteed hardware power-disconnection mechanism.
+- Team connector signal directions and physical pin numbering are confirmed before PCB fabrication.
+
+The final pin assignments will be validated during hardware integration and testing.
+
