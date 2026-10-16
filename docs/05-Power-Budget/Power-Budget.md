@@ -28,10 +28,36 @@ The calculations will also include a 25% current safety
 margin and an evaluation of the voltage regulator's
 power dissipation.
 
-### Power Budget Calculations
 
-The completed power budget tables and calculations
-will be inserted below.
+## Power Budget Calculations
+
+### Component and Power Rail Analysis
+
+![Power Budget Page 1](budgetPg1.png)
+
+### USB Power Rail
+
+![Power Budget Page 2](budgetPg2.png)
+
+### External Power Sources
+
+![Power Budget Page 3](budgetPg3.png)
+
+### Thermal Analysis
+
+![Thermal Analysis](thermalAnalysis.png)
+
+## Resources
+
+The preliminary Power Budget report is available
+for download:
+
+- [Power Budget PDF](EGR304_Power_Budget_Preliminary.pdf)
+- [Power Budget Excel](EGR304_Power_Budget_Integrated.xlsx)
+
+**Status:** Preliminary Design —
+Hardware Verification Pending.
+
 
 ## Conclusions
 
