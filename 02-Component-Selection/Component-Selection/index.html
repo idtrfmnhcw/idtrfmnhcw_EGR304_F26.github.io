@@ -635,6 +635,57 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#5-microcontroller-and-pin-assignment" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Microcontroller and Pin Assignment
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Microcontroller and Pin Assignment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-microcontroller-information" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.1 Microcontroller Information
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-microcontroller-pin-assignment" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.2 Microcontroller Pin Assignment
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53-team-connector-pin-assignment" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.3 Team Connector Pin Assignment
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#54-design-considerations" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.4 Design Considerations
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -962,6 +1013,57 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#5-microcontroller-and-pin-assignment" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Microcontroller and Pin Assignment
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Microcontroller and Pin Assignment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-microcontroller-information" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.1 Microcontroller Information
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-microcontroller-pin-assignment" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.2 Microcontroller Pin Assignment
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53-team-connector-pin-assignment" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.3 Team Connector Pin Assignment
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#54-design-considerations" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.4 Design Considerations
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1123,7 +1225,7 @@
 <p>The final driver circuit and its output waveform will be verified during schematic development and hardware testing.</p>
 <hr>
 <h2 id="4-power-source-and-voltage-regulation-selection">4. Power Source and Voltage Regulation Selection</h2>
-<p>The User Controls &amp; Safety subsystem requires a stable 5V power supply to operate the PIC18F57Q43 microcontroller and its peripheral components.</p>
+<p>The User Controls &amp; Safety subsystem uses two separate power sources. The PIC18F57Q43 Curiosity Nano and its associated user interface components operate from USB power, while a 9V external DC adapter and a 5V linear regulator supply the external buzzer circuit.</p>
 <p>According to the EGR304 project requirements, each individual subsystem must include a 5V linear voltage regulator and a barrel jack connection for a 9V external power supply.</p>
 <p>The power system must provide stable voltage regulation, sufficient current capacity, and safe operating conditions for all connected components.</p>
 <h3 id="41-linear-voltage-regulator-selection">4.1 Linear Voltage Regulator Selection</h3>
@@ -1158,7 +1260,9 @@
 </table>
 <p><strong>Choice:</strong> Option 1: STMicroelectronics L7805CV Linear Voltage Regulator.</p>
 <p><strong>Rationale:</strong> The STMicroelectronics L7805CV was selected because it provides a cost-effective and straightforward method for converting the required 9V input supply into a regulated 5V output.</p>
-<p>The selected regulator supports a fixed 5V output and has a rated current capacity of up to 1.5A, subject to appropriate thermal management. This provides useful current capacity for the PIC18F57Q43 microcontroller and the subsystem's peripheral devices.</p>
+<p>The selected regulator provides a fixed 5V output and has a rated current capacity of up to 1.5A, subject to appropriate thermal management.</p>
+<p>In the current design, the PIC18F57Q43 Curiosity Nano is powered separately through USB, while the L7805CV supplies the external buzzer circuit and its proposed minimum-load resistor.</p>
+<p>This arrangement provides regulated power for the externally powered components while keeping the microcontroller's USB supply separate from the external 5V power rail.</p>
 <p>Compared with the L78M05CV, the L7805CV provides a higher rated output current at a slightly lower unit cost.</p>
 <p>Compared with the L4940V5, the L7805CV offers a simpler and less expensive solution for the required 9V input. Since the subsystem uses a nominal 9V supply, the lower dropout voltage of the L4940V5 is not a significant advantage.</p>
 <p>The TO-220 through-hole package also simplifies manual soldering, PCB integration, and possible heatsink installation.</p>
@@ -1202,6 +1306,248 @@
 <p>Compared with the Pololu 1A adapter, Option 3 offers a higher rated current capacity at a similar or lower unit cost.</p>
 <p>The higher current rating does not mean that the subsystem will continuously draw 2A. Actual current consumption depends on the connected components, while the linear regulator's safe output current will also depend on thermal conditions.</p>
 <p>Therefore, Option 3 provides a practical external power source for the subsystem. The final selection will be confirmed after completing the power budget, verifying the barrel jack dimensions, and calculating regulator power dissipation.</p>
+<hr>
+<h2 id="5-microcontroller-and-pin-assignment">5. Microcontroller and Pin Assignment</h2>
+<h3 id="51-microcontroller-information">5.1 Microcontroller Information</h3>
+<p>The User Controls &amp; Safety subsystem uses the Microchip PIC18F57Q43 Curiosity Nano development board as the main controller.</p>
+<p>The microcontroller is responsible for reading user inputs, controlling status indicators, generating PWM signals for the audible warning system, and communicating with other subsystems through the team connector.</p>
+<p>The microcontroller is powered through USB, while the external buzzer circuit is powered by a separate 5V linear voltage regulator.</p>
+<p><em>Table 6: Microcontroller Information</em></p>
+<table>
+<thead>
+<tr>
+<th><strong>Parameter</strong></th>
+<th><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Manufacturer</td>
+<td>Microchip Technology</td>
+</tr>
+<tr>
+<td>Microcontroller</td>
+<td>PIC18F57Q43</td>
+</tr>
+<tr>
+<td>Development Board</td>
+<td>PIC18F57Q43 Curiosity Nano</td>
+</tr>
+<tr>
+<td>Target Voltage</td>
+<td>5V</td>
+</tr>
+<tr>
+<td>Clock Source</td>
+<td>HFINTOSC</td>
+</tr>
+<tr>
+<td>System Clock</td>
+<td>64 MHz</td>
+</tr>
+<tr>
+<td>Clock Divider</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Power Source</td>
+<td>USB</td>
+</tr>
+<tr>
+<td>Digital Interfaces</td>
+<td>GPIO and PWM</td>
+</tr>
+<tr>
+<td>Analog Interfaces</td>
+<td>ADC and DAC</td>
+</tr>
+<tr>
+<td>Subsystem</td>
+<td>User Controls &amp; Safety</td>
+</tr>
+</tbody>
+</table>
+<h3 id="52-microcontroller-pin-assignment">5.2 Microcontroller Pin Assignment</h3>
+<p>The following table summarizes the proposed microcontroller pin assignments based on the individual block diagram.</p>
+<p><em>Table 7: PIC18F57Q43 Pin Assignment</em></p>
+<table>
+<thead>
+<tr>
+<th><strong>PIC Pin</strong></th>
+<th><strong>Signal Name</strong></th>
+<th><strong>Direction</strong></th>
+<th><strong>Function</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>RB0</td>
+<td>E_STOP</td>
+<td>Digital Input</td>
+<td>Emergency stop button</td>
+</tr>
+<tr>
+<td>RB1</td>
+<td>START_PAUSE</td>
+<td>Digital Input</td>
+<td>Start/Pause button</td>
+</tr>
+<tr>
+<td>RA0/ANA0</td>
+<td>SPEED_KNOB</td>
+<td>Analog Input</td>
+<td>Speed control potentiometer</td>
+</tr>
+<tr>
+<td>RB2</td>
+<td>GREEN_LED</td>
+<td>Digital Output</td>
+<td>Normal operation indicator</td>
+</tr>
+<tr>
+<td>RB3</td>
+<td>RED_LED</td>
+<td>Digital Output</td>
+<td>Fault/Emergency stop indicator</td>
+</tr>
+<tr>
+<td>RB4</td>
+<td>BUZZER_PWM</td>
+<td>PWM Output</td>
+<td>Audible warning control</td>
+</tr>
+<tr>
+<td>RD0</td>
+<td>SAFE_OK</td>
+<td>Digital Output</td>
+<td>Safety status signal</td>
+</tr>
+<tr>
+<td>RD1</td>
+<td>RUN_REQ</td>
+<td>Digital Output</td>
+<td>System run request</td>
+</tr>
+<tr>
+<td>RD2</td>
+<td>GRIP_CMD</td>
+<td>Digital Output</td>
+<td>Gripper control command</td>
+</tr>
+<tr>
+<td>RD3</td>
+<td>OBJ_HELD</td>
+<td>Digital Input</td>
+<td>Object detection feedback</td>
+</tr>
+<tr>
+<td>RD4</td>
+<td>ARM_IN_POS</td>
+<td>Digital Input</td>
+<td>Arm position feedback</td>
+</tr>
+<tr>
+<td>RA2/DAC1</td>
+<td>SPEED_SET</td>
+<td>Analog Output</td>
+<td>Speed command to other subsystems</td>
+</tr>
+<tr>
+<td>RA1/ANA1</td>
+<td>GRIP_FORCE</td>
+<td>Analog Input</td>
+<td>Gripper force feedback</td>
+</tr>
+</tbody>
+</table>
+<p>These assignments are based on the current individual block diagram. The final physical pin connections and peripheral configurations will be verified during schematic design and MPLAB Code Configurator setup.</p>
+<h3 id="53-team-connector-pin-assignment">5.3 Team Connector Pin Assignment</h3>
+<p>The User Controls &amp; Safety subsystem communicates with other team subsystems through an 8-pin connector.</p>
+<p>The connector includes digital control signals, analog signals, and a common ground connection.</p>
+<p><em>Table 8: Team Connector Pin Assignment</em></p>
+<table>
+<thead>
+<tr>
+<th><strong>Connector Pin</strong></th>
+<th><strong>Signal Name</strong></th>
+<th><strong>PIC Pin</strong></th>
+<th><strong>Direction</strong></th>
+<th><strong>Signal Type</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>SAFE_OK</td>
+<td>RD0</td>
+<td>Output</td>
+<td>Digital</td>
+</tr>
+<tr>
+<td>2</td>
+<td>RUN_REQ</td>
+<td>RD1</td>
+<td>Output</td>
+<td>Digital</td>
+</tr>
+<tr>
+<td>3</td>
+<td>GRIP_CMD</td>
+<td>RD2</td>
+<td>Output</td>
+<td>Digital</td>
+</tr>
+<tr>
+<td>4</td>
+<td>OBJ_HELD</td>
+<td>RD3</td>
+<td>Input</td>
+<td>Digital</td>
+</tr>
+<tr>
+<td>5</td>
+<td>ARM_IN_POS</td>
+<td>RD4</td>
+<td>Input</td>
+<td>Digital</td>
+</tr>
+<tr>
+<td>6</td>
+<td>SPEED_SET</td>
+<td>RA2/DAC1</td>
+<td>Output</td>
+<td>Analog</td>
+</tr>
+<tr>
+<td>7</td>
+<td>GRIP_FORCE</td>
+<td>RA1/ANA1</td>
+<td>Input</td>
+<td>Analog</td>
+</tr>
+<tr>
+<td>8</td>
+<td>GND</td>
+<td>System GND</td>
+<td>Ground</td>
+<td>Ground</td>
+</tr>
+</tbody>
+</table>
+<p>The connector assignments follow the current subsystem block diagram and will be confirmed with the team before final PCB design.</p>
+<p>The connector ground provides a common reference for digital and analog communication between the subsystems.</p>
+<h3 id="54-design-considerations">5.4 Design Considerations</h3>
+<p>The final PCB and firmware design must verify the following:</p>
+<ul>
+<li>Digital input pins are configured with appropriate pull-up or pull-down resistors.</li>
+<li>Analog input signals remain within the microcontroller's permitted voltage range.</li>
+<li>PWM output is correctly configured through the microcontroller's peripheral pin selection system.</li>
+<li>The selected buzzer driver supports the required load and control signal.</li>
+<li>The USB-powered microcontroller and externally powered buzzer circuit share a common ground without directly connecting their separate 5V supply outputs.</li>
+<li>The emergency stop function is evaluated for the required safety behavior. A software-only emergency stop signal must not be treated as a guaranteed hardware power-disconnection mechanism.</li>
+<li>Team connector signal directions and physical pin numbering are confirmed before PCB fabrication.</li>
+</ul>
+<p>The final pin assignments will be validated during hardware integration and testing.</p>
 
 
 
