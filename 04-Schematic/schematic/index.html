@@ -90,7 +90,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#overview" class="md-skip">
+        <a href="#title-schematic" class="md-skip">
           Skip to content
         </a>
       
@@ -640,6 +640,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
+  <a href="#title-schematic" class="md-nav__link">
+    <span class="md-ellipsis">
+      title: Schematic
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#overview" class="md-nav__link">
     <span class="md-ellipsis">
       Overview
@@ -649,9 +658,27 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#resouces" class="md-nav__link">
+  <a href="#complete-schematic" class="md-nav__link">
     <span class="md-ellipsis">
-      Resouces
+      Complete Schematic
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#design-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Design Notes
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      Resources
     </span>
   </a>
   
@@ -800,6 +827,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
+  <a href="#title-schematic" class="md-nav__link">
+    <span class="md-ellipsis">
+      title: Schematic
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#overview" class="md-nav__link">
     <span class="md-ellipsis">
       Overview
@@ -809,9 +845,27 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#resouces" class="md-nav__link">
+  <a href="#complete-schematic" class="md-nav__link">
     <span class="md-ellipsis">
-      Resouces
+      Complete Schematic
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#design-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Design Notes
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      Resources
     </span>
   </a>
   
@@ -842,21 +896,42 @@
 
   <h1>Schematic</h1>
 
+<hr>
+<h2 id="title-schematic">title: Schematic</h2>
 <h2 id="overview">Overview</h2>
-<p>This schematic is design to support .... (highlight functionally, power, and controller).</p>
-<p>
-<strong>Figure ##:</strong> Showing a example schematic.</p>
-<h2 id="resouces">Resouces</h2>
-<p>The schematic as a PDF download is available <a href="../ExampleSchematic.pdf"><em>here</em></a>, and the Zip folder of the project <a href="../dummyZip.zip"><em>here</em></a>.</p>
+<p>This schematic represents the User Controls and Safety Subsystem for our robotic arm project. The subsystem is designed around the PIC18F57Q43 Curiosity Nano microcontroller and provides user input, status indication, and communication with other subsystems.</p>
+<p>The major functions include:</p>
+<ul>
+<li><strong>Power Regulation:</strong> A 9–12 V DC input is regulated to 5 V using an L7805 voltage regulator.</li>
+<li><strong>Emergency Stop Input:</strong> A normally closed (NC) switch provides an emergency-stop request signal to the microcontroller.</li>
+<li><strong>Start/Pause Control:</strong> A push button allows the user to request operation or pause.</li>
+<li><strong>Speed Adjustment:</strong> A 10 kΩ potentiometer provides an adjustable analog input through an RC filter.</li>
+<li><strong>Status Indicators:</strong> Green and red LEDs indicate system operating states.</li>
+<li><strong>Buzzer Driver:</strong> A 2N3904 transistor drives a 5 V buzzer for audible notifications.</li>
+<li><strong>Communication Interface:</strong> UART connectors and an 8-pin interface support communication with the other robotic arm subsystems.</li>
+<li><strong>Debug and Expansion:</strong> Additional test points, a debug button, and GPIO connections support testing and future development.</li>
+</ul>
+<h2 id="complete-schematic">Complete Schematic</h2>
+<p></p>
+<p><strong>Figure 1:</strong> Complete schematic of the User Controls and Safety Subsystem, including the power supply, PIC18F57Q43 Curiosity Nano, user inputs, indicators, buzzer driver, and communication interfaces.</p>
+<p><a href="../SchematicPNG.png">View full-size schematic image</a></p>
+<h2 id="design-notes">Design Notes</h2>
+<p>The circuit includes RC filtering for mechanical switch inputs and the speed adjustment potentiometer.</p>
+<p>The emergency-stop switch is monitored by the microcontroller. This input circuit is intended for prototype-level stop-request detection and does not replace an independent hardware safety shutdown circuit.</p>
+<p>The fuse rating is provisional, and the peripheral IC requirement is pending instructor confirmation.</p>
+<h2 id="resources">Resources</h2>
+<ul>
+<li><a href="../EGR304_I_SSD_1019.pdf">Download Schematic PDF</a></li>
+<li><a href="../EGR304_User_Controls_Schematic_RevA.zip">Download KiCad Project ZIP</a></li>
+<li><a href="../SchematicPNG.png">View Schematic PNG</a></li>
+</ul>
+<p>The KiCad project archive includes the schematic, project configuration, and custom symbol and footprint libraries.</p>
 
 
 
 
 
 
-
-  
-  
 
 
 
