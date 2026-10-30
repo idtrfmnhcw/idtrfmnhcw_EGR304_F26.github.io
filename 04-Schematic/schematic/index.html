@@ -661,9 +661,9 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#complete-schematic-revision-b" class="md-nav__link">
+  <a href="#complete-schematic-revision-c" class="md-nav__link">
     <span class="md-ellipsis">
-      Complete Schematic — Revision B
+      Complete Schematic — Revision C
     </span>
   </a>
   
@@ -950,9 +950,9 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#complete-schematic-revision-b" class="md-nav__link">
+  <a href="#complete-schematic-revision-c" class="md-nav__link">
     <span class="md-ellipsis">
-      Complete Schematic — Revision B
+      Complete Schematic — Revision C
     </span>
   </a>
   
@@ -1095,62 +1095,83 @@
 <h2 id="title-schematic">title: Schematic</h2>
 <h1 id="user-controls-and-safety-subsystem">User Controls and Safety Subsystem</h1>
 <h2 id="overview">Overview</h2>
-<p>This schematic describes the User Controls and Safety Subsystem of our robotic system. The subsystem uses a PIC18F57Q43 Curiosity Nano microcontroller to process user inputs, monitor stop-request signals, control status indicators, generate audible alerts, and communicate with other subsystems.</p>
-<p>The main functional blocks include power regulation, emergency-stop monitoring, start/pause control, speed adjustment, LED indicators, a ULN2003A buzzer driver, communication interfaces, and debugging features.</p>
-<h2 id="complete-schematic-revision-b">Complete Schematic — Revision B</h2>
-<p><img alt="User Controls and Safety Schematic RevB" src="../Schematic_RevB.png" /></p>
-<p><strong>Figure 1:</strong> Updated schematic of the User Controls and Safety Subsystem.</p>
-<p><a href="../EGR304_User_Controls_Schematic_RevB.pdf">View High-Resolution Schematic</a></p>
+<p>This schematic describes the User Controls and Safety Subsystem of our robotic system. The subsystem uses a PIC18F57Q43 Curiosity Nano microcontroller to process user inputs, monitor emergency-stop requests, control status indicators, generate audible alerts, and communicate with other robotic subsystems.</p>
+<p>The main functional blocks include power regulation, emergency-stop monitoring, start/pause control, speed adjustment, LED indicators, a ULN2003A buzzer driver, communication interfaces, and debugging and expansion features.</p>
+<p>The schematic has been reorganized using descriptive net labels to improve readability, simplify signal tracing, and reduce unnecessary wiring across the drawing.</p>
+<h2 id="complete-schematic-revision-c">Complete Schematic — Revision C</h2>
+<p><img alt="User Controls and Safety Schematic RevB" src="../Schematic_RevC.png" /></p>
+<p><strong>Figure 1:</strong> Revised schematic of the User Controls and Safety Subsystem, including the updated buzzer driver and reorganized signal connections.</p>
+<p><a href="../EGR304_User_Controls_Schematic_RevC.pdf">View High-Resolution Schematic</a></p>
 <h2 id="circuit-architecture">Circuit Architecture</h2>
 <h3 id="1-power-regulation">1. Power Regulation</h3>
 <p>The circuit receives an external 9–12 V DC supply through J1, a barrel jack connector.</p>
-<p>F1 provides provisional overcurrent protection. U2, an L7805 linear voltage regulator, produces the regulated 5 V power rail.</p>
-<p>C1, C2, and C3 provide input and output filtering to support voltage stability.</p>
-<p>The final fuse rating and thermal performance will be verified during hardware implementation.</p>
+<p>F1 provides overcurrent protection, while U2, an L7805 linear voltage regulator, generates the regulated +5V_EXT supply rail.</p>
+<p>C1, C2, and C3 provide input and output filtering to improve voltage stability.</p>
+<p>The PIC18F57Q43 Curiosity Nano is powered through its USB connection, while the external circuitry uses the regulated +5V_EXT supply. The two circuits share a common ground reference.</p>
+<p>The final fuse rating, regulator thermal performance, and power consumption will be verified during hardware implementation.</p>
 <h3 id="2-microcontroller">2. Microcontroller</h3>
-<p>The PIC18F57Q43 Curiosity Nano is the main controller.</p>
-<p>It reads user inputs through digital GPIO and ADC connections, generates control signals, operates status indicators, and communicates with other robotic subsystems.</p>
+<p>The PIC18F57Q43 Curiosity Nano serves as the main controller for the subsystem.</p>
+<p>It reads user inputs through digital GPIO and ADC connections, generates control outputs, operates status indicators, and communicates with other robotic subsystems.</p>
 <p>A custom KiCad symbol and footprint were created for the Curiosity Nano development board.</p>
+<p>Descriptive net labels connect the microcontroller to the other functional blocks, improving the organization and readability of the schematic.</p>
 <h3 id="3-emergency-stop-monitoring">3. Emergency-Stop Monitoring</h3>
 <p>SW1 is a normally closed emergency-stop switch.</p>
-<p>R1 provides a pull-up resistor, while C7 provides RC input filtering.</p>
-<p>When SW1 opens, RB0 is pulled HIGH, allowing the microcontroller to detect a stop request.</p>
-<p>J6 allows the physical switch to be connected externally.</p>
-<p>This circuit monitors stop requests but does not replace an independent, safety-rated hardware shutdown system.</p>
+<p>R1 provides a pull-up resistor, while C5 provides input filtering.</p>
+<p>Under normal conditions, the switch holds the E_STOP signal LOW. When the switch opens, the signal is pulled HIGH.</p>
+<p>The E_STOP signal is connected to RB0 of the microcontroller, allowing the firmware to detect a stop request.</p>
+<p>J6 provides an external connection for the physical emergency-stop switch.</p>
+<p>This circuit provides stop-request monitoring but does not replace an independent, safety-rated hardware shutdown system.</p>
 <h3 id="4-startpause-and-speed-control">4. Start/Pause and Speed Control</h3>
 <p>SW2 provides the start/pause input.</p>
-<p>R2 and C4 form a pull-up and RC debounce circuit.</p>
+<p>R2 and C4 form a pull-up and RC filtering circuit for the START_PAUSE signal, which is connected to RB1.</p>
 <p>RV1 is a 10 kΩ potentiometer used to adjust the requested operating speed.</p>
-<p>R3 and C5 filter the analog voltage before it reaches RA0.</p>
-<p>The microcontroller processes the input and can generate a speed command through RA2 using the SPEED_SET signal.</p>
+<p>The potentiometer generates an adjustable analog voltage. R3 and C7 provide filtering before the POT_ADC signal reaches RA0, which is configured as an ADC input.</p>
+<p>The microcontroller processes the analog speed request and can generate a corresponding speed command through RA2 using the SPEED_SET signal.</p>
+<p>POT_ADC and SPEED_SET are separate signals: POT_ADC represents the user's speed adjustment input, while SPEED_SET provides the speed command to the connected subsystem.</p>
 <h3 id="5-status-indicators">5. Status Indicators</h3>
-<p>Green and red LEDs provide visual operating-state indications.</p>
-<p>Each LED uses a current-limiting resistor to prevent excessive current.</p>
-<p>An additional debug LED supports circuit testing.</p>
+<p>Green and red LEDs provide visual indications of system operating conditions.</p>
+<p>Each LED includes a current-limiting resistor to prevent excessive current.</p>
+<p>The green LED is controlled through RB2, while the red LED is controlled through RB3.</p>
+<p>An additional debug LED is connected through RF2 to support circuit testing and troubleshooting.</p>
 <h3 id="6-uln2003a-buzzer-driver">6. ULN2003A Buzzer Driver</h3>
-<p>The buzzer driver was updated from an individual 2N3904 transistor to a ULN2003A Darlington driver IC following instructor feedback.</p>
-<p>The microcontroller sends the buzzer control signal from RC4 through JP1 to the first input channel of U3.</p>
-<p>The corresponding ULN2003A output channel switches the buzzer's low-side connection.</p>
-<p>The driver input circuitry provides defined logic states and supports external load control.</p>
-<p>The selected passive piezoelectric buzzer requires an appropriate varying drive signal. The PWM waveform, actual drive voltage, and sound output will be verified during hardware testing.</p>
+<p>The original buzzer circuit used an individual 2N3904 transistor. Following instructor feedback, the circuit was updated to use a ULN2003A Darlington driver IC.</p>
+<p>The microcontroller generates the BUZZER_ENABLE control signal through RC4.</p>
+<p>JP1 provides a connection between the control signal and the first input channel of U3.</p>
+<p>The corresponding ULN2003A output channel provides low-side switching for the buzzer.</p>
+<p>The input circuitry includes a pull-down resistor to establish a defined logic state when the control signal is disconnected.</p>
+<p>Unused input channels are also connected to a defined LOW state.</p>
+<p>The final buzzer drive method, operating voltage, and audible output will be verified against the selected component's datasheet during hardware testing.</p>
 <h3 id="7-team-communication">7. Team Communication</h3>
-<p>J2 provides an eight-pin interface with the other robotic subsystems.</p>
-<p>The interface includes SAFE_OK, RUN_REQ, GRIP_CMD, OBJ_HELD, ARM_IN_POS, SPEED_SET, GRIP_FORCE, and GND.</p>
-<p>J3 and J4 provide additional UART communication connections.</p>
+<p>J2 provides an eight-pin interface for communication with the other robotic subsystems.</p>
+<p>The interface includes the following signals:</p>
+<p>SAFE_OK</p>
+<p>RUN_REQ</p>
+<p>GRIP_CMD</p>
+<p>OBJ_HELD</p>
+<p>ARM_IN_POS</p>
+<p>SPEED_SET</p>
+<p>GRIP_FORCE</p>
+<p>GND</p>
+<p>The SPEED_SET signal is generated through the microcontroller's RA2 output, while GRIP_FORCE is connected to RA1 for analog measurement.</p>
+<p>J3 and J4 provide additional UART communication interfaces using the microcontroller's RC3 and RC2 connections.</p>
+<p>These connectors allow the user-control subsystem to exchange operating commands and status information with the other subsystems.</p>
 <h3 id="8-debugging-and-expansion">8. Debugging and Expansion</h3>
-<p>SW3 provides an additional debug input.</p>
-<p>J5 offers power, ground, and spare GPIO connections for future expansion.</p>
-<p>Test points are included to support voltage measurements and signal verification during circuit testing.</p>
+<p>SW3 provides an additional debugging input through the DEBUG_SW signal, connected to RE0.</p>
+<p>The debug input includes a pull-up resistor and an RC filtering capacitor.</p>
+<p>J5 provides access to the external 5 V supply, ground, and spare GPIO connections for future expansion.</p>
+<p>Test points are included at selected circuit nodes to support voltage measurements, debugging, and signal verification during hardware testing.</p>
+<p>These features improve the flexibility and maintainability of the subsystem during development.</p>
 <h2 id="design-revision">Design Revision</h2>
 <p><strong>Revision A:</strong> Initial schematic using a 2N3904 transistor for buzzer switching.</p>
 <p><strong>Revision B:</strong> Updated buzzer driver using a ULN2003A driver IC in response to instructor feedback.</p>
-<p>The revised schematic passed KiCad Electrical Rules Checker with zero errors and zero warnings.</p>
-<p>Physical testing and final component verification remain future implementation tasks.</p>
+<p><strong>Revision C:</strong> Reorganized the schematic using descriptive net labels, separated functional circuit blocks, and clarified microcontroller signal connections to improve readability and maintainability.</p>
+<p>The revised schematic has passed KiCad Electrical Rules Check (ERC).</p>
+<p>Physical testing, final component verification, and system-level validation remain part of the hardware implementation process.</p>
 <h2 id="resources">Resources</h2>
 <ul>
-<li><a href="../EGR304_User_Controls_Schematic_RevB.pdf">Download Schematic RevB PDF</a></li>
-<li><a href="../EGR304_User_Controls_Project_RevB.zip">Download KiCad Project RevB ZIP</a></li>
-<li><a href="../Schematic_RevB.png">View Schematic RevB PNG</a></li>
+<li><a href="../EGR304_User_Controls_Schematic_RevC.pdf">Download Schematic RevB PDF</a></li>
+<li><a href="../EGR304_User_Controls_Project_RevC.zip">Download KiCad Project RevB ZIP</a></li>
+<li><a href="../Schematic_RevC.png">View Schematic RevB PNG</a></li>
 </ul>
 
 
