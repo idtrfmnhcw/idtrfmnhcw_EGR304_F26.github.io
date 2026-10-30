@@ -53,7 +53,7 @@ The preliminary Power Budget report is available
 for download:
 
 - [Power Budget PDF](EGR304_Power_Budget_Preliminary.pdf)
-- [Power Budget Excel](EGR304_Power_Budget_Integrated.xlsx)
+- [Power Budget Excel](EGR304_Power_Budget_RevC_ULN2003A.xlsx)
 
 **Status:** Preliminary Design —
 Hardware Verification Pending.
