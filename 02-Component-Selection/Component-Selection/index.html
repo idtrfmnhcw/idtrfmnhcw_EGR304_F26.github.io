@@ -1275,15 +1275,14 @@
 </tr>
 </tbody>
 </table>
-<p><strong>Choice:</strong> Option 1: onsemi 2N3904TF NPN Bipolar Junction Transistor.</p>
+<p><strong>Final Choice (Revised):</strong> ULN2003A Darlington Transistor Array.</p>
 <p><strong>Rationale:</strong> The onsemi 2N3904TF NPN transistor was selected because it provides a simple, affordable, and practical switching solution for the User Controls &amp; Safety subsystem.</p>
-<p>The selected CPT-1407-5TH piezoelectric buzzer has a nominal operating current of approximately 5mA under its specified test conditions. The 2N3904TF transistor has a maximum collector current rating of 200mA, which provides adequate current-handling capability for the intended low-current application.</p>
-<p>The transistor can be controlled using the PWM output from the PIC18F57Q43 through a properly sized base resistor. This allows the microcontroller to control the buzzer while using the subsystem's 5V power supply for the load.</p>
-<p>Compared with the 2N7000 MOSFET, the 2N3904TF offers a straightforward interface without concerns about whether the available 3.3V GPIO signal will provide sufficiently low MOSFET on-resistance.</p>
-<p>Compared with the AO3400A, the selected transistor is easier to assemble manually because it uses a through-hole TO-92 package instead of a small surface-mount package.</p>
-<p>Although the 2N3904TF requires base current during operation, its low cost, simple switching circuit, and adequate current capability make it suitable for this application.</p>
-<p>Therefore, Option 1 provides an appropriate balance of electrical compatibility, ease of assembly, cost, and circuit simplicity for the buzzer driver.</p>
-<p>The final driver circuit and its output waveform will be verified during schematic development and hardware testing.</p>
+<p>Following the schematic design review, the original 2N3904 transistor-based buzzer driver was replaced with the ULN2003A Darlington transistor array.</p>
+<p>The updated design uses the PIC18F57Q43 RC4 pin (PWM1OUT1) to generate a 4 kHz PWM signal for the buzzer-control circuit. The ULN2003A provides a low-side switching interface between the microcontroller and the externally powered 5 V buzzer.</p>
+<p>The selected Same Sky CPT-1407-5TH passive piezoelectric buzzer remains unchanged.</p>
+<p>The ULN2003A was selected for the revised design because it provides an integrated transistor-driver solution with internal input resistors and multiple available driver channels.</p>
+<p>The PWM output is initially configured with a 0% duty cycle. The application firmware will control the buzzer during warning conditions.</p>
+<p>This revision supersedes the original 2N3904 driver selection. Final electrical operation will be verified during hardware testing.</p>
 <hr />
 <h2 id="4-power-source-and-voltage-regulation-selection">4. Power Source and Voltage Regulation Selection</h2>
 <p>The User Controls &amp; Safety subsystem uses two separate power sources. The PIC18F57Q43 Curiosity Nano and its associated user interface components operate from USB power, while a 9V external DC adapter and a 5V linear regulator supply the external buzzer circuit.</p>
