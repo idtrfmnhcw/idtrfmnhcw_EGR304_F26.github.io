@@ -107,23 +107,23 @@ Three switching devices were evaluated.
 | ![N-Channel MOSFET](driver_2n7000.png)<br>**Option 2.**<br>Diotec Semiconductor 2N7000<br>N-Channel MOSFET<br>60V, 200mA, TO-92<br>**$0.29/each**<br>[Link to Product](https://www.digikey.com/en/products/detail/diotec-semiconductor/2N7000/13164314)<br>[Datasheet](https://diotec.com/request/datasheet/2n7000.pdf) | • Voltage-controlled gate requires very little steady-state current.<br>• Through-hole mounting simplifies manual PCB assembly.<br>• Suitable for low-current switching applications.<br>• Low cost compared with other driver solutions. | • Low on-resistance is specified at higher gate-drive voltages, not guaranteed at 3.3V.<br>• Switching performance must be verified with the actual GPIO voltage.<br>• Requires a gate pull-down resistor for reliable startup behavior.<br>• Provides no significant functional advantage over the NPN transistor for this low-current buzzer. |
 | ![Logic-Level MOSFET](driver_ao3400.png)<br>**Option 3.**<br>Alpha & Omega AO3400A<br>Logic-Level N-Channel MOSFET<br>30V, 5.7A rated, SOT-23<br>**$0.52/each**<br>[Link to Product](https://www.digikey.com/en/products/detail/alpha-omega-semiconductor-inc/AO3400A/1855942)<br>[Datasheet](https://mm.digikey.com/Volume0/opasdata/d220001/medias/docus/1133/AO3400A_ds.pdf) | • Low on-resistance, including at a 2.5V gate-drive voltage.<br>• Compatible with low-voltage microcontroller control signals.<br>• Requires very little steady-state gate current.<br>• Suitable for PWM switching applications.<br>• Compact PCB footprint. | • Small SOT-23 surface-mount package requires more careful soldering.<br>• Higher price than Options 1 and 2.<br>• Current capability is much greater than needed for the selected buzzer.<br>• Requires a gate pull-down resistor to prevent unintended switching during startup. |
 
-**Choice:** Option 1: onsemi 2N3904TF NPN Bipolar Junction Transistor.
+**Final Choice (Revised):** ULN2003A Darlington Transistor Array.
 
 **Rationale:** The onsemi 2N3904TF NPN transistor was selected because it provides a simple, affordable, and practical switching solution for the User Controls & Safety subsystem.
 
-The selected CPT-1407-5TH piezoelectric buzzer has a nominal operating current of approximately 5mA under its specified test conditions. The 2N3904TF transistor has a maximum collector current rating of 200mA, which provides adequate current-handling capability for the intended low-current application.
+Following the schematic design review, the original 2N3904 transistor-based buzzer driver was replaced with the ULN2003A Darlington transistor array.
 
-The transistor can be controlled using the PWM output from the PIC18F57Q43 through a properly sized base resistor. This allows the microcontroller to control the buzzer while using the subsystem's 5V power supply for the load.
+The updated design uses the PIC18F57Q43 RC4 pin (PWM1OUT1) to generate a 4 kHz PWM signal for the buzzer-control circuit. The ULN2003A provides a low-side switching interface between the microcontroller and the externally powered 5 V buzzer.
 
-Compared with the 2N7000 MOSFET, the 2N3904TF offers a straightforward interface without concerns about whether the available 3.3V GPIO signal will provide sufficiently low MOSFET on-resistance.
+The selected Same Sky CPT-1407-5TH passive piezoelectric buzzer remains unchanged.
 
-Compared with the AO3400A, the selected transistor is easier to assemble manually because it uses a through-hole TO-92 package instead of a small surface-mount package.
+The ULN2003A was selected for the revised design because it provides an integrated transistor-driver solution with internal input resistors and multiple available driver channels.
 
-Although the 2N3904TF requires base current during operation, its low cost, simple switching circuit, and adequate current capability make it suitable for this application.
+The PWM output is initially configured with a 0% duty cycle. The application firmware will control the buzzer during warning conditions.
 
-Therefore, Option 1 provides an appropriate balance of electrical compatibility, ease of assembly, cost, and circuit simplicity for the buzzer driver.
+This revision supersedes the original 2N3904 driver selection. Final electrical operation will be verified during hardware testing.
 
-The final driver circuit and its output waveform will be verified during schematic development and hardware testing.
+
 
 
 ---
