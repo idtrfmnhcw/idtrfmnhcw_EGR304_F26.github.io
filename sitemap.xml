@@ -31,6 +31,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://embedded-systems-design.github.io/EGR304DataSheetTemplate/06-MCC-Configuration/</loc>
+         <lastmod>2026-10-30</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://embedded-systems-design.github.io/EGR304DataSheetTemplate/Appendix/</loc>
          <lastmod>2026-10-30</lastmod>
          <changefreq>daily</changefreq>
