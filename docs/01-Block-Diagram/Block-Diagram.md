@@ -1,3 +1,4 @@
+
 ---
 title: Individual Block Diagram
 tags:
@@ -31,4 +32,4 @@ The primary inter-system signals include SAFE_OK, RUN_REQ, GRIP_CMD, OBJ_HELD, A
 
 ## Block Diagram
 
-![User Controls and Safety Individual Block Diagram](fb38f136-ddee-4fbe-9198-e43db79c7a91.jpg)
+![User Controls and Safety Individual Block Diagram]<img width="805" height="681" alt="螢幕擷取畫面 2026-10-30 124431" src="https://github.com/user-attachments/assets/8ec44210-9675-47fb-a873-7b4eb69a36e5" />
