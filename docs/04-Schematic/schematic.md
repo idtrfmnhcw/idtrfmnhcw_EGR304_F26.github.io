@@ -154,6 +154,6 @@ Physical testing, final component verification, and system-level validation rema
 
 ## Resources
 
-- [Download Schematic RevB PDF](EGR304_User_Controls_Schematic_RevC.pdf)
-- [Download KiCad Project RevB ZIP](EGR304_User_Controls_Project_RevC.zip)
-- [View Schematic RevB PNG](Schematic_RevC.png)
+- [Download Schematic RevC PDF](EGR304_User_Controls_Schematic_RevC.pdf)
+- [Download KiCad Project RevC ZIP](EGR304_User_Controls_Project_RevC.zip)
+- [View Schematic RevC PNG](Schematic_RevC.png)
