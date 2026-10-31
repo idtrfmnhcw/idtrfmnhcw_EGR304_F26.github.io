@@ -109,8 +109,7 @@ Three switching devices were evaluated.
 
 **Final Choice (Revised):** ULN2003A Darlington Transistor Array.
 
-**Rationale:** The onsemi 2N3904TF NPN transistor was selected because it provides a simple, affordable, and practical switching solution for the User Controls & Safety subsystem.
-
+**Rationale:** 
 Following the schematic design review, the original 2N3904 transistor-based buzzer driver was replaced with the ULN2003A Darlington transistor array.
 
 The updated design uses the PIC18F57Q43 RC4 pin (PWM1OUT1) to generate a 4 kHz PWM signal for the buzzer-control circuit. The ULN2003A provides a low-side switching interface between the microcontroller and the externally powered 5 V buzzer.
