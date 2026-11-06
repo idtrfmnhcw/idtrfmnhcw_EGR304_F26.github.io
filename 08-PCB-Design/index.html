@@ -29,7 +29,7 @@
 
     
       
-        <title>PCB Design - EGR 304 Dunyue Yang Data Sheet</title>
+        <title>PCB Design — Revision A - EGR 304 Dunyue Yang Data Sheet</title>
       
     
     
@@ -83,7 +83,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#pcb-design" class="md-skip">
+        <a href="#pcb-design-revision-a" class="md-skip">
           Skip to content
         </a>
       
@@ -118,7 +118,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              PCB Design
+              PCB Design — Revision A
             
           </span>
         </div>
@@ -852,6 +852,131 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-design-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Design Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-pcb-layout" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. PCB Layout
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. PCB Layout">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#front-copper-layer-fcu" class="md-nav__link">
+    <span class="md-ellipsis">
+      Front Copper Layer (F.Cu)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#back-copper-layer-bcu" class="md-nav__link">
+    <span class="md-ellipsis">
+      Back Copper Layer (B.Cu)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-pcb-3d-visualization" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. PCB 3D Visualization
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. PCB 3D Visualization">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#top-3d-view" class="md-nav__link">
+    <span class="md-ellipsis">
+      Top 3D View
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bottom-3d-view" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bottom 3D View
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-design-verification" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Design Verification
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Design Verification">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#design-rules-check" class="md-nav__link">
+    <span class="md-ellipsis">
+      Design Rules Check
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-design-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Design Files
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-revision-status-and-future-improvements" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Revision Status and Future Improvements
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -873,7 +998,107 @@
   
 
 
-<h1 id="pcb-design">PCB Design</h1>
+<h1 id="pcb-design-revision-a">PCB Design — Revision A</h1>
+<p><strong>Student:</strong> Dun Yue Yang<br />
+<strong>Course:</strong> EGR 304 — Embedded Systems Design<br />
+<strong>Design:</strong> User Controls and Safety Subsystem<br />
+<strong>Revision:</strong> A<br />
+<strong>Date:</strong> November 6, 2026<br />
+<strong>Status:</strong> Initial Design Review — Pending Instructor and TA Feedback</p>
+<hr />
+<h2 id="1-design-overview">1. Design Overview</h2>
+<p>This PCB was designed using KiCad 10.0 for the EGR 304 Embedded Systems Design project.</p>
+<p>The board integrates a PIC18F57Q43 Curiosity Nano with supporting circuitry for power regulation, user controls, status indicators, a buzzer driver, and external communication interfaces.</p>
+<p>The major functional sections include:</p>
+<ul>
+<li><strong>Power Supply:</strong> DC barrel jack, fuse, L7805 voltage regulator, and filtering capacitors.</li>
+<li><strong>User Controls:</strong> Emergency stop, start/pause buttons, and speed-adjustment potentiometer.</li>
+<li><strong>Status Indicators:</strong> Green, red, and debugging LEDs.</li>
+<li><strong>Buzzer Driver:</strong> ULN2003A driver circuit for the buzzer.</li>
+<li><strong>Communication Interfaces:</strong> UART connectors, team interface, and GPIO expansion.</li>
+<li><strong>Debugging:</strong> Dedicated test points for circuit verification.</li>
+</ul>
+<p>The initial PCB layout has been completed and is ready for instructor and TA review.</p>
+<hr />
+<h2 id="2-pcb-layout">2. PCB Layout</h2>
+<p>The PCB was designed using a two-layer layout consisting of the front copper layer (F.Cu) and back copper layer (B.Cu).</p>
+<p>Components were organized into functional groups to improve routing efficiency, accessibility, and readability.</p>
+<h3 id="front-copper-layer-fcu">Front Copper Layer (F.Cu)</h3>
+<p><img alt="PCB Front Copper Layout" src="PCB_Top_RevA.png" /></p>
+<p><a href="EGR304_I_SSDTop_RevA_F_Cu.pdf">Download Front Copper Layout PDF</a></p>
+<h3 id="back-copper-layer-bcu">Back Copper Layer (B.Cu)</h3>
+<p><img alt="PCB Back Copper Layout" src="PCB_Bottom_RevA.png" /></p>
+<p><a href="EGR304_I_SSDBottom_RevA_B_Cu.pdf">Download Back Copper Layout PDF</a></p>
+<p>A ground copper zone was implemented on the back copper layer to provide the required GND connections.</p>
+<hr />
+<h2 id="3-pcb-3d-visualization">3. PCB 3D Visualization</h2>
+<p>The KiCad 3D Viewer was used to inspect component placement, board geometry, and the overall mechanical arrangement.</p>
+<h3 id="top-3d-view">Top 3D View</h3>
+<p><img alt="PCB Top 3D View" src="PCB_3D_Top_RevA.png" /></p>
+<h3 id="bottom-3d-view">Bottom 3D View</h3>
+<p><img alt="PCB Bottom 3D View" src="PCB_3D_Bottom_RevA.png" /></p>
+<hr />
+<h2 id="4-design-verification">4. Design Verification</h2>
+<p>The following verification steps were completed for Revision A:</p>
+<table>
+<thead>
+<tr>
+<th>Verification</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PCB Routing</td>
+<td>Completed</td>
+</tr>
+<tr>
+<td>Ground Copper Zone</td>
+<td>Completed</td>
+</tr>
+<tr>
+<td>Design Rules Check (DRC)</td>
+<td>0 violations</td>
+</tr>
+<tr>
+<td>Unconnected Items</td>
+<td>0</td>
+</tr>
+<tr>
+<td>PCB and Schematic Parity</td>
+<td>Passed</td>
+</tr>
+<tr>
+<td>3D Model Inspection</td>
+<td>Completed</td>
+</tr>
+</tbody>
+</table>
+<h3 id="design-rules-check">Design Rules Check</h3>
+<p><img alt="PCB DRC Results" src="PCB_DRC_RevA.png" /></p>
+<p>The KiCad Design Rules Checker reported zero violations and zero unconnected items after completing the PCB routing and ground connections.</p>
+<hr />
+<h2 id="5-design-files">5. Design Files</h2>
+<p>The complete KiCad design project, including the schematic, PCB layout, project configuration, and custom footprint files, is provided below.</p>
+<p><strong><a href="EGR304_I_SSD_1106.zip">Download KiCad PCB Design — Revision A (ZIP)</a></strong></p>
+<p>Additional layout documents:</p>
+<ul>
+<li><a href="EGR304_I_SSDTop_RevA_F_Cu.pdf">Front Copper Layout PDF</a></li>
+<li><a href="EGR304_I_SSDBottom_RevA_B_Cu.pdf">Back Copper Layout PDF</a></li>
+</ul>
+<hr />
+<h2 id="6-revision-status-and-future-improvements">6. Revision Status and Future Improvements</h2>
+<p>Revision A represents the initial completed PCB layout prepared for design review.</p>
+<p>The design has passed the completed KiCad verification checks. However, the PCB has not yet been manufactured or physically tested.</p>
+<p>The next steps will include:</p>
+<ol>
+<li>Obtaining feedback from the instructor and teaching assistants.</li>
+<li>Reviewing component footprints and physical clearances.</li>
+<li>Confirming final component specifications and fuse selection.</li>
+<li>Making any required schematic or PCB revisions.</li>
+<li>Preparing the final manufacturing files after design approval.</li>
+</ol>
+<p><strong>Current Status: Revision A — Pending Instructor and TA Review.</strong></p>
 
 
 
