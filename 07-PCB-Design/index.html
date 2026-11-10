@@ -29,7 +29,7 @@
 
     
       
-        <title>PCB Design — Revision A - EGR 304 Dunyue Yang Data Sheet</title>
+        <title>PCB Design — Revision A.1 - EGR 304 Dunyue Yang Data Sheet</title>
       
     
     
@@ -83,7 +83,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#pcb-design-revision-a" class="md-skip">
+        <a href="#pcb-design-revision-a1" class="md-skip">
           Skip to content
         </a>
       
@@ -118,7 +118,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              PCB Design — Revision A
+              PCB Design — Revision A.1
             
           </span>
         </div>
@@ -934,13 +934,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#4-design-verification" class="md-nav__link">
+  <a href="#4-test-points" class="md-nav__link">
     <span class="md-ellipsis">
-      4. Design Verification
+      4. Test Points
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="4. Design Verification">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-design-verification" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Design Verification
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Design Verification">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -958,18 +967,57 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#5-design-files" class="md-nav__link">
+  <a href="#6-design-files" class="md-nav__link">
     <span class="md-ellipsis">
-      5. Design Files
+      6. Design Files
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Design Files">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pcb-layout-documents" class="md-nav__link">
+    <span class="md-ellipsis">
+      PCB Layout Documents
     </span>
   </a>
   
 </li>
+        
+      </ul>
+    </nav>
+  
+</li>
       
         <li class="md-nav__item">
-  <a href="#6-revision-status-and-future-improvements" class="md-nav__link">
+  <a href="#7-revision-history" class="md-nav__link">
     <span class="md-ellipsis">
-      6. Revision Status and Future Improvements
+      7. Revision History
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Revision History">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#revision-a1-changes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Revision A.1 Changes
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-future-improvements" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. Future Improvements
     </span>
   </a>
   
@@ -998,48 +1046,106 @@
   
 
 
-<h1 id="pcb-design-revision-a">PCB Design — Revision A</h1>
+<h1 id="pcb-design-revision-a1">PCB Design — Revision A.1</h1>
 <p><strong>Student:</strong> Dun Yue Yang<br />
 <strong>Course:</strong> EGR 304 — Embedded Systems Design<br />
 <strong>Design:</strong> User Controls and Safety Subsystem<br />
-<strong>Revision:</strong> A<br />
-<strong>Date:</strong> November 6, 2026<br />
-<strong>Status:</strong> Initial Design Review — Pending Instructor and TA Feedback</p>
+<strong>Current Revision:</strong> A.1<br />
+<strong>Updated:</strong> November 9, 2026<br />
+<strong>Status:</strong> Updated Design — Pending Instructor and TA Feedback</p>
 <hr />
 <h2 id="1-design-overview">1. Design Overview</h2>
 <p>This PCB was designed using KiCad 10.0 for the EGR 304 Embedded Systems Design project.</p>
-<p>The board integrates a PIC18F57Q43 Curiosity Nano with supporting circuitry for power regulation, user controls, status indicators, a buzzer driver, and external communication interfaces.</p>
+<p>The design integrates a PIC18F57Q43 Curiosity Nano with supporting circuitry for power regulation, user controls, status indicators, buzzer control, and team communication.</p>
 <p>The major functional sections include:</p>
 <ul>
 <li><strong>Power Supply:</strong> DC barrel jack, fuse, L7805 voltage regulator, and filtering capacitors.</li>
 <li><strong>User Controls:</strong> Emergency stop, start/pause buttons, and speed-adjustment potentiometer.</li>
 <li><strong>Status Indicators:</strong> Green, red, and debugging LEDs.</li>
-<li><strong>Buzzer Driver:</strong> ULN2003A driver circuit for the buzzer.</li>
-<li><strong>Communication Interfaces:</strong> UART connectors, team interface, and GPIO expansion.</li>
+<li><strong>Buzzer Driver:</strong> ULN2003A driver circuit.</li>
+<li><strong>Team Interface:</strong> Digital control signals, analog signals, and UART communication.</li>
 <li><strong>Debugging:</strong> Dedicated test points for circuit verification.</li>
 </ul>
-<p>The initial PCB layout has been completed and is ready for instructor and TA review.</p>
 <hr />
 <h2 id="2-pcb-layout">2. PCB Layout</h2>
-<p>The PCB was designed using a two-layer layout consisting of the front copper layer (F.Cu) and back copper layer (B.Cu).</p>
-<p>Components were organized into functional groups to improve routing efficiency, accessibility, and readability.</p>
+<p>The PCB uses a two-layer design:</p>
+<ul>
+<li><strong>F.Cu:</strong> Signal and power routing.</li>
+<li><strong>B.Cu:</strong> Signal routing and GND copper zone.</li>
+</ul>
+<p>The component placement and routing are organized according to the major functional sections of the circuit.</p>
 <h3 id="front-copper-layer-fcu">Front Copper Layer (F.Cu)</h3>
-<p><img alt="PCB Front Copper Layout" src="PCB_Top_RevA.png" /></p>
-<p><a href="EGR304_I_SSDTop_RevA_F_Cu.pdf">Download Front Copper Layout PDF</a></p>
+<p><img alt="PCB Front Copper Layout" src="PCB_Top_RevA1.png" /></p>
+<p><a href="EGR304_I_SSDTop_RevA1_F_Cu.pdf">Download Front Copper Layout PDF</a></p>
 <h3 id="back-copper-layer-bcu">Back Copper Layer (B.Cu)</h3>
-<p><img alt="PCB Back Copper Layout" src="PCB_Bottom_RevA.png" /></p>
-<p><a href="EGR304_I_SSDBottom_RevA_B_Cu.pdf">Download Back Copper Layout PDF</a></p>
-<p>A ground copper zone was implemented on the back copper layer to provide the required GND connections.</p>
+<p><img alt="PCB Back Copper Layout" src="PCB_Bottom_RevA1.png" /></p>
+<p><a href="EGR304_I_SSDBottom_RevA1_B_Cu.pdf">Download Back Copper Layout PDF</a></p>
+<p>A GND copper zone is implemented on the back copper layer.</p>
 <hr />
 <h2 id="3-pcb-3d-visualization">3. PCB 3D Visualization</h2>
 <p>The KiCad 3D Viewer was used to inspect component placement, board geometry, and the overall mechanical arrangement.</p>
 <h3 id="top-3d-view">Top 3D View</h3>
-<p><img alt="PCB Top 3D View" src="PCB_3D_Top_RevA.png" /></p>
+<p><img alt="PCB Top 3D View" src="PCB_3D_Top_RevA1.png" /></p>
 <h3 id="bottom-3d-view">Bottom 3D View</h3>
-<p><img alt="PCB Bottom 3D View" src="PCB_3D_Bottom_RevA.png" /></p>
+<p><img alt="PCB Bottom 3D View" src="PCB_3D_Bottom_RevA1.png" /></p>
 <hr />
-<h2 id="4-design-verification">4. Design Verification</h2>
-<p>The following verification steps were completed for Revision A:</p>
+<h2 id="4-test-points">4. Test Points</h2>
+<p>Test points are included to support debugging and verification of important power and control signals.</p>
+<table>
+<thead>
+<tr>
+<th>Test Point</th>
+<th>Net Name</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TP1</td>
+<td>VIN_FUSED</td>
+<td>Fused input voltage</td>
+</tr>
+<tr>
+<td>TP2</td>
+<td>+5V_EXT</td>
+<td>Regulated 5V output</td>
+</tr>
+<tr>
+<td>TP3</td>
+<td>GND</td>
+<td>Ground reference</td>
+</tr>
+<tr>
+<td>TP4</td>
+<td>GND</td>
+<td>Ground reference</td>
+</tr>
+<tr>
+<td>TP5</td>
+<td>START_PAUSE</td>
+<td>Start/Pause control signal</td>
+</tr>
+<tr>
+<td>TP6</td>
+<td>POT_ADC</td>
+<td>Potentiometer ADC input</td>
+</tr>
+<tr>
+<td>TP7</td>
+<td>GRIP_FORCE</td>
+<td>Grip-force feedback signal</td>
+</tr>
+<tr>
+<td>TP8</td>
+<td>SPEED_SET</td>
+<td>Speed-setting DAC output</td>
+</tr>
+</tbody>
+</table>
+<p>TP7 was added in Revision A.1 to provide an additional measurement point for the GRIP_FORCE signal.</p>
+<hr />
+<h2 id="5-design-verification">5. Design Verification</h2>
+<p>The following verification steps were completed after updating the PCB layout.</p>
 <table>
 <thead>
 <tr>
@@ -1053,7 +1159,7 @@
 <td>Completed</td>
 </tr>
 <tr>
-<td>Ground Copper Zone</td>
+<td>B.Cu Ground Copper Zone</td>
 <td>Completed</td>
 </tr>
 <tr>
@@ -1075,30 +1181,62 @@
 </tbody>
 </table>
 <h3 id="design-rules-check">Design Rules Check</h3>
-<p><img alt="PCB DRC Results" src="PCB_DRC_RevA.png" /></p>
-<p>The KiCad Design Rules Checker reported zero violations and zero unconnected items after completing the PCB routing and ground connections.</p>
+<p><img alt="PCB DRC Results" src="PCB_DRC_RevA1.png" /></p>
+<p>The updated PCB layout passed the KiCad Design Rules Check with zero violations and zero unconnected items.</p>
 <hr />
-<h2 id="5-design-files">5. Design Files</h2>
-<p>The complete KiCad design project, including the schematic, PCB layout, project configuration, and custom footprint files, is provided below.</p>
-<p><strong><a href="EGR304_I_SSD_1106.zip">Download KiCad PCB Design — Revision A (ZIP)</a></strong></p>
-<p>Additional layout documents:</p>
+<h2 id="6-design-files">6. Design Files</h2>
+<p>The updated KiCad project is available below.</p>
+<p><strong><a href="EGR304_I_SSD_1109_RevA1.zip">Download KiCad PCB Design — Revision A.1</a></strong></p>
+<h3 id="pcb-layout-documents">PCB Layout Documents</h3>
 <ul>
-<li><a href="EGR304_I_SSDTop_RevA_F_Cu.pdf">Front Copper Layout PDF</a></li>
-<li><a href="EGR304_I_SSDBottom_RevA_B_Cu.pdf">Back Copper Layout PDF</a></li>
+<li><a href="EGR304_I_SSDTop_RevA1_F_Cu.pdf">Front Copper Layout PDF — Revision A.1</a></li>
+<li><a href="EGR304_I_SSDBottom_RevA1_B_Cu.pdf">Back Copper Layout PDF — Revision A.1</a></li>
 </ul>
 <hr />
-<h2 id="6-revision-status-and-future-improvements">6. Revision Status and Future Improvements</h2>
-<p>Revision A represents the initial completed PCB layout prepared for design review.</p>
-<p>The design has passed the completed KiCad verification checks. However, the PCB has not yet been manufactured or physically tested.</p>
-<p>The next steps will include:</p>
+<h2 id="7-revision-history">7. Revision History</h2>
+<table>
+<thead>
+<tr>
+<th>Revision</th>
+<th>Date</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A</td>
+<td>November 6, 2026</td>
+<td>Initial completed PCB layout</td>
+</tr>
+<tr>
+<td>A.1</td>
+<td>November 9, 2026</td>
+<td>Added TP7 for GRIP_FORCE and updated PCB documentation</td>
+</tr>
+</tbody>
+</table>
+<h3 id="revision-a1-changes">Revision A.1 Changes</h3>
+<ul>
+<li>Added TP7 to the GRIP_FORCE signal.</li>
+<li>Updated the PCB layout and routing documentation.</li>
+<li>Regenerated the PCB layout PDFs and images.</li>
+<li>Retained the B.Cu ground copper zone.</li>
+<li>Maintained F.Cu as the primary signal and power routing layer.</li>
+<li>Repeated design verification after the modification.</li>
+</ul>
+<hr />
+<h2 id="8-future-improvements">8. Future Improvements</h2>
+<p>Revision A.1 represents an updated PCB design prepared for instructor and TA review.</p>
+<p>The board has not yet been manufactured or physically tested.</p>
+<p>Future work includes:</p>
 <ol>
-<li>Obtaining feedback from the instructor and teaching assistants.</li>
-<li>Reviewing component footprints and physical clearances.</li>
-<li>Confirming final component specifications and fuse selection.</li>
-<li>Making any required schematic or PCB revisions.</li>
-<li>Preparing the final manufacturing files after design approval.</li>
+<li>Reviewing instructor and TA feedback.</li>
+<li>Confirming component footprints and physical dimensions.</li>
+<li>Verifying final component specifications.</li>
+<li>Making any required PCB revisions.</li>
+<li>Preparing manufacturing files after design approval.</li>
 </ol>
-<p><strong>Current Status: Revision A — Pending Instructor and TA Review.</strong></p>
+<p><strong>Current Status: Revision A.1 — Pending Instructor and TA Review.</strong></p>
 
 
 
