@@ -125,6 +125,65 @@ The updated KiCad project is available below.
 | A | November 6, 2026 | Initial completed PCB layout |
 | A.1 | November 9, 2026 | Added TP7 for GRIP_FORCE and updated PCB documentation |
 
+
+---
+
+## 8. PCB Manufacturing Files
+
+### Gerber and NC Drill Files
+
+The Gerber and NC Drill files for PCB Revision A.1
+have been generated using KiCad 10.0.
+
+The manufacturing package includes:
+- Top and bottom copper layers
+- Top and bottom solder mask layers
+- Top and bottom silkscreen layers
+- PCB board outline
+- Plated and non-plated drill files
+
+[Download Gerber and NC Drill ZIP](EGR304_User_Controls_RevA1_Gerber.zip)
+
+**Status:** Preliminary manufacturing files.
+Final DFM approval is pending.
+
+---
+
+## 9. JLCPCB DFM Verification
+
+### DFM Check Results
+
+The PCB manufacturing files were uploaded to
+JLCDFM for manufacturability analysis.
+
+The initial DFM check identified silkscreen-related
+issues, including silkscreen-to-pad clearance
+and silkscreen line width.
+
+These issues remain under review.
+
+![JLCDFM Results](PCB_DFM_RevA1.png)
+
+### PCB 3D Inspection
+
+The PCB was inspected using the JLCDFM 3D Viewer.
+
+![JLCDFM 3D View](PCB_DFM_3D_RevA1.png)
+
+### Manufacturing Status
+
+- Gerber and NC Drill files: Generated
+- Initial DFM analysis: Completed
+- Silkscreen issues: Pending correction or approval
+- Final manufacturing approval: Pending
+
+**Note:** These files are provided for team review.
+The final DFM results must be verified before
+placing the manufacturing order.
+
+---
+
+
 ### Revision A.1 Changes
 
 - Added TP7 to the GRIP_FORCE signal.
@@ -136,7 +195,7 @@ The updated KiCad project is available below.
 
 ---
 
-## 8. Future Improvements
+## 9. Future Improvements
 
 Revision A.1 represents an updated PCB design prepared for instructor and TA review.
 
@@ -150,4 +209,3 @@ Future work includes:
 4. Making any required PCB revisions.
 5. Preparing manufacturing files after design approval.
 
-**Current Status: Revision A.1 — Pending Instructor and TA Review.**
