@@ -780,6 +780,48 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="7. Team Communication">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#j2-team-interface" class="md-nav__link">
+    <span class="md-ellipsis">
+      J2 — Team Interface
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#uart-communication" class="md-nav__link">
+    <span class="md-ellipsis">
+      UART Communication
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mcc-configuration-reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      MCC Configuration Reference
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#team-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Team Documentation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
@@ -1163,6 +1205,48 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="7. Team Communication">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#j2-team-interface" class="md-nav__link">
+    <span class="md-ellipsis">
+      J2 — Team Interface
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#uart-communication" class="md-nav__link">
+    <span class="md-ellipsis">
+      UART Communication
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mcc-configuration-reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      MCC Configuration Reference
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#team-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Team Documentation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
@@ -1276,19 +1360,123 @@
 <p>Unused input channels are also connected to a defined LOW state.</p>
 <p>The final buzzer drive method, operating voltage, and audible output will be verified against the selected component's datasheet during hardware testing.</p>
 <h3 id="7-team-communication">7. Team Communication</h3>
-<p>J2 provides an eight-pin interface for communication with the other robotic subsystems.</p>
-<p>The interface includes the following signals:</p>
-<p>SAFE_OK</p>
-<p>RUN_REQ</p>
-<p>GRIP_CMD</p>
-<p>OBJ_HELD</p>
-<p>ARM_IN_POS</p>
-<p>SPEED_SET</p>
-<p>GRIP_FORCE</p>
-<p>GND</p>
-<p>The SPEED_SET signal is generated through the microcontroller's RA2 output, while GRIP_FORCE is connected to RA1 for analog measurement.</p>
-<p>J3 and J4 provide additional UART communication interfaces using the microcontroller's RC3 and RC2 connections.</p>
-<p>These connectors allow the user-control subsystem to exchange operating commands and status information with the other subsystems.</p>
+<p>The User Controls and Safety Subsystem communicates with other robotic subsystems through the J2 team interface connector and the additional UART connectors.</p>
+<p>The communication interfaces are designed to exchange safety conditions, operating commands, speed references, and feedback signals.</p>
+<h4 id="j2-team-interface">J2 — Team Interface</h4>
+<p>J2 provides an eight-pin interface containing digital control signals, analog signals, and a common ground reference.</p>
+<table>
+<thead>
+<tr>
+<th>Signal</th>
+<th>PIC Pin</th>
+<th>Direction</th>
+<th>Signal Type</th>
+<th>Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SAFE_OK</td>
+<td>RD0</td>
+<td>Output</td>
+<td>Digital</td>
+<td>Indicates whether the safety conditions permit system operation.</td>
+</tr>
+<tr>
+<td>RUN_REQ</td>
+<td>RD1</td>
+<td>Output</td>
+<td>Digital</td>
+<td>Sends the requested run or pause state.</td>
+</tr>
+<tr>
+<td>GRIP_CMD</td>
+<td>RD2</td>
+<td>Output</td>
+<td>Digital</td>
+<td>Sends a gripper operation command.</td>
+</tr>
+<tr>
+<td>OBJ_HELD</td>
+<td>RD3</td>
+<td>Input</td>
+<td>Digital</td>
+<td>Receives feedback indicating whether an object is held.</td>
+</tr>
+<tr>
+<td>ARM_IN_POS</td>
+<td>RD4</td>
+<td>Input</td>
+<td>Digital</td>
+<td>Receives feedback indicating whether the robotic arm has reached its required position.</td>
+</tr>
+<tr>
+<td>SPEED_SET</td>
+<td>RA2</td>
+<td>Output</td>
+<td>Analog (DAC)</td>
+<td>Provides the requested operating speed as an analog voltage.</td>
+</tr>
+<tr>
+<td>GRIP_FORCE</td>
+<td>RA1</td>
+<td>Input</td>
+<td>Analog (ADC)</td>
+<td>Receives the gripper force feedback voltage.</td>
+</tr>
+<tr>
+<td>GND</td>
+<td>GND</td>
+<td>Reference</td>
+<td>Ground</td>
+<td>Provides a common voltage reference between subsystems.</td>
+</tr>
+</tbody>
+</table>
+<p>All signal directions are defined relative to the User Controls and Safety Subsystem.</p>
+<p>The digital signals communicate operating commands and system status. The analog signals provide speed-control and grip-force information.</p>
+<p>The final signal definitions and connector assignments must remain consistent with the team connection table.</p>
+<h4 id="uart-communication">UART Communication</h4>
+<p>J3 and J4 provide additional UART communication connections for debugging and subsystem communication.</p>
+<table>
+<thead>
+<tr>
+<th>Signal</th>
+<th>PIC Pin</th>
+<th>Direction</th>
+<th>Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>UART_TX</td>
+<td>RC2</td>
+<td>Output</td>
+<td>Transmits serial data.</td>
+</tr>
+<tr>
+<td>UART_RX</td>
+<td>RC3</td>
+<td>Input</td>
+<td>Receives serial data.</td>
+</tr>
+</tbody>
+</table>
+<p>The UART1 peripheral is configured with the following parameters:</p>
+<ul>
+<li>Baud rate: 9600 bps</li>
+<li>Data bits: 8</li>
+<li>Parity: None</li>
+<li>Stop bits: 1</li>
+<li>Hardware flow control: None</li>
+</ul>
+<p>UART communication and the J2 digital/analog interface are separate communication methods.</p>
+<h4 id="mcc-configuration-reference">MCC Configuration Reference</h4>
+<p>The microcontroller pin assignments, GPIO settings, ADC, DAC, UART, and PWM configurations are documented on the following page:</p>
+<p><a href="../../06-MCC-Configuration/index%20%281%29/">View MCC Configuration</a></p>
+<h4 id="team-documentation">Team Documentation</h4>
+<p><a href="https://egr304-2026-f-107.github.io/EGR304-2026-F-107.github.io/">Team 107 Project Website</a></p>
+<p>The team connection table should be used as the reference for final subsystem integration.</p>
 <h3 id="8-debugging-and-expansion">8. Debugging and Expansion</h3>
 <p>SW3 provides an additional debugging input through the DEBUG_SW signal, connected to RE0.</p>
 <p>The debug input includes a pull-up resistor and an RC filtering capacitor.</p>

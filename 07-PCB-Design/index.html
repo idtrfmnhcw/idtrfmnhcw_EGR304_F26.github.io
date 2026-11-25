@@ -997,8 +997,68 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="7. Revision History">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-pcb-manufacturing-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. PCB Manufacturing Files
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. PCB Manufacturing Files">
       <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#gerber-and-nc-drill-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      Gerber and NC Drill Files
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-jlcpcb-dfm-verification" class="md-nav__link">
+    <span class="md-ellipsis">
+      9. JLCPCB DFM Verification
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9. JLCPCB DFM Verification">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dfm-check-results" class="md-nav__link">
+    <span class="md-ellipsis">
+      DFM Check Results
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pcb-3d-inspection" class="md-nav__link">
+    <span class="md-ellipsis">
+      PCB 3D Inspection
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#manufacturing-status" class="md-nav__link">
+    <span class="md-ellipsis">
+      Manufacturing Status
+    </span>
+  </a>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#revision-a1-changes" class="md-nav__link">
@@ -1015,9 +1075,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#8-future-improvements" class="md-nav__link">
+  <a href="#9-future-improvements" class="md-nav__link">
     <span class="md-ellipsis">
-      8. Future Improvements
+      9. Future Improvements
     </span>
   </a>
   
@@ -1215,6 +1275,44 @@
 </tr>
 </tbody>
 </table>
+<hr />
+<h2 id="8-pcb-manufacturing-files">8. PCB Manufacturing Files</h2>
+<h3 id="gerber-and-nc-drill-files">Gerber and NC Drill Files</h3>
+<p>The Gerber and NC Drill files for PCB Revision A.1
+have been generated using KiCad 10.0.</p>
+<p>The manufacturing package includes:
+- Top and bottom copper layers
+- Top and bottom solder mask layers
+- Top and bottom silkscreen layers
+- PCB board outline
+- Plated and non-plated drill files</p>
+<p><a href="EGR304_User_Controls_RevA1_Gerber.zip">Download Gerber and NC Drill ZIP</a></p>
+<p><strong>Status:</strong> Preliminary manufacturing files.
+Final DFM approval is pending.</p>
+<hr />
+<h2 id="9-jlcpcb-dfm-verification">9. JLCPCB DFM Verification</h2>
+<h3 id="dfm-check-results">DFM Check Results</h3>
+<p>The PCB manufacturing files were uploaded to
+JLCDFM for manufacturability analysis.</p>
+<p>The initial DFM check identified silkscreen-related
+issues, including silkscreen-to-pad clearance
+and silkscreen line width.</p>
+<p>These issues remain under review.</p>
+<p><img alt="JLCDFM Results" src="PCB_DFM_RevA1.png" /></p>
+<h3 id="pcb-3d-inspection">PCB 3D Inspection</h3>
+<p>The PCB was inspected using the JLCDFM 3D Viewer.</p>
+<p><img alt="JLCDFM 3D View" src="PCB_DFM_3D_RevA1.png" /></p>
+<h3 id="manufacturing-status">Manufacturing Status</h3>
+<ul>
+<li>Gerber and NC Drill files: Generated</li>
+<li>Initial DFM analysis: Completed</li>
+<li>Silkscreen issues: Pending correction or approval</li>
+<li>Final manufacturing approval: Pending</li>
+</ul>
+<p><strong>Note:</strong> These files are provided for team review.
+The final DFM results must be verified before
+placing the manufacturing order.</p>
+<hr />
 <h3 id="revision-a1-changes">Revision A.1 Changes</h3>
 <ul>
 <li>Added TP7 to the GRIP_FORCE signal.</li>
@@ -1225,7 +1323,7 @@
 <li>Repeated design verification after the modification.</li>
 </ul>
 <hr />
-<h2 id="8-future-improvements">8. Future Improvements</h2>
+<h2 id="9-future-improvements">9. Future Improvements</h2>
 <p>Revision A.1 represents an updated PCB design prepared for instructor and TA review.</p>
 <p>The board has not yet been manufactured or physically tested.</p>
 <p>Future work includes:</p>
@@ -1236,7 +1334,6 @@
 <li>Making any required PCB revisions.</li>
 <li>Preparing manufacturing files after design approval.</li>
 </ol>
-<p><strong>Current Status: Revision A.1 — Pending Instructor and TA Review.</strong></p>
 
 
 
