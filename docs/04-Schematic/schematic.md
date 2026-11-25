@@ -172,6 +172,32 @@ Test points are included at selected circuit nodes to support voltage measuremen
 
 These features improve the flexibility and maintainability of the subsystem during development.
 
+
+## Subsystem Functional Summary
+
+The following table summarizes the major functions implemented by the User Controls and Safety Subsystem.
+
+| Functional Block | Components / Interface | PIC Pin | Main Function |
+|---|---|---|---|
+| Power Regulation | J1, F1, U2 | N/A | Generates the regulated external 5 V supply. |
+| Emergency Stop | SW1, J6 | RB0 | Detects an emergency-stop request. |
+| Start/Pause | SW2 | RB1 | Receives the user operating command. |
+| Speed Adjustment | RV1 | RA0 | Reads the requested speed through the ADC. |
+| Speed Command | J2 | RA2 | Generates the analog speed command through the DAC. |
+| Green LED | D1 | RB2 | Indicates operating status. |
+| Red LED | D2 | RB3 | Indicates warning or stop status. |
+| Debug LED | D3 | RF2 | Supports hardware and firmware testing. |
+| Buzzer Driver | U3, JP1, BZ1 | RC4 | Generates an audible warning using PWM control. |
+| Team Communication | J2 | RD0-RD4, RA1, RA2 | Exchanges commands and feedback with other subsystems. |
+| UART Communication | J3, J4 | RC2, RC3 | Provides serial communication and debugging. |
+| Debug Input | SW3 | RE0 | Provides an additional hardware test input. |
+| Expansion Interface | J5 | Spare GPIO | Provides additional connection points. |
+
+The hardware verification process evaluates the implementation of these functional blocks on the fabricated PCB.
+
+For detailed peripheral configurations, refer to the [MCC Configuration](../06-MCC-Configuration/index%20%281%29.md) page.
+
+
 ## Design Revision
 
 **Revision A:** Initial schematic using a 2N3904 transistor for buzzer switching.
@@ -182,7 +208,26 @@ These features improve the flexibility and maintainability of the subsystem duri
 
 The revised schematic has passed KiCad Electrical Rules Check (ERC).
 
-Physical testing, final component verification, and system-level validation remain part of the hardware implementation process.
+
+## Hardware Implementation Status
+
+The PCB has been manufactured, and component assembly and individual subsystem hardware verification are in progress.
+
+The schematic serves as the reference for component installation, power measurements, signal tracing, and microcontroller configuration.
+
+The hardware verification process includes:
+
+- Power supply verification
+- Microcontroller programming
+- GPIO input and output testing
+- ADC and DAC verification
+- PWM buzzer testing
+- Team interface verification
+
+Any hardware modifications identified during assembly and testing will be reflected in the schematic and PCB documentation.
+
+Detailed hardware verification results are documented on the [PCB Design](../07-PCB-Design/index.md) page.
+
 
 ## Resources
 
