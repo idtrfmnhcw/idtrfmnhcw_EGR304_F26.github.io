@@ -1060,6 +1060,123 @@
   
 </li>
         
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-physical-pcb-assembly" class="md-nav__link">
+    <span class="md-ellipsis">
+      10. Physical PCB Assembly
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="10. Physical PCB Assembly">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#assembled-pcb-top-view" class="md-nav__link">
+    <span class="md-ellipsis">
+      Assembled PCB — Top View
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#assembled-pcb-bottom-view" class="md-nav__link">
+    <span class="md-ellipsis">
+      Assembled PCB — Bottom View
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-power-supply-verification" class="md-nav__link">
+    <span class="md-ellipsis">
+      11. Power Supply Verification
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="11. Power Supply Verification">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#power-verification-results" class="md-nav__link">
+    <span class="md-ellipsis">
+      Power Verification Results
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-subsystem-functional-verification" class="md-nav__link">
+    <span class="md-ellipsis">
+      12. Subsystem Functional Verification
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="12. Subsystem Functional Verification">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#emergency-stop-and-safety-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      Emergency Stop and Safety Control
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#startpause-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      Start/Pause Control
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#speed-adjustment-and-analog-verification" class="md-nav__link">
+    <span class="md-ellipsis">
+      Speed Adjustment and Analog Verification
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#buzzer-verification" class="md-nav__link">
+    <span class="md-ellipsis">
+      Buzzer Verification
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#physical-assembly-inspection" class="md-nav__link">
+    <span class="md-ellipsis">
+      Physical Assembly Inspection
+    </span>
+  </a>
+  
+</li>
+        
           <li class="md-nav__item">
   <a href="#revision-a1-changes" class="md-nav__link">
     <span class="md-ellipsis">
@@ -1075,9 +1192,18 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#9-future-improvements" class="md-nav__link">
+  <a href="#current-status-and-future-improvements" class="md-nav__link">
     <span class="md-ellipsis">
-      9. Future Improvements
+      Current Status and Future Improvements
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Related Documentation
     </span>
   </a>
   
@@ -1111,8 +1237,8 @@
 <strong>Course:</strong> EGR 304 — Embedded Systems Design<br />
 <strong>Design:</strong> User Controls and Safety Subsystem<br />
 <strong>Current Revision:</strong> A.1<br />
-<strong>Updated:</strong> November 9, 2026<br />
-<strong>Status:</strong> Updated Design — Pending Instructor and TA Feedback</p>
+<strong>Updated:</strong> November 25, 2026<br />
+<strong>Status:</strong> PCB Fabricated — Hardware Assembly and Subsystem Verification in Progress</p>
 <hr />
 <h2 id="1-design-overview">1. Design Overview</h2>
 <p>This PCB was designed using KiCad 10.0 for the EGR 304 Embedded Systems Design project.</p>
@@ -1287,8 +1413,9 @@ have been generated using KiCad 10.0.</p>
 - PCB board outline
 - Plated and non-plated drill files</p>
 <p><a href="EGR304_User_Controls_RevA1_Gerber.zip">Download Gerber and NC Drill ZIP</a></p>
-<p><strong>Status:</strong> Preliminary manufacturing files.
-Final DFM approval is pending.</p>
+<p><strong>Status:</strong> PCB manufacturing completed.</p>
+<p>The Gerber and NC Drill files are retained as the manufacturing reference for PCB Revision A.1.</p>
+<p>The fabricated PCB is currently being assembled and evaluated through individual subsystem hardware verification.</p>
 <hr />
 <h2 id="9-jlcpcb-dfm-verification">9. JLCPCB DFM Verification</h2>
 <h3 id="dfm-check-results">DFM Check Results</h3>
@@ -1303,16 +1430,267 @@ and silkscreen line width.</p>
 <p>The PCB was inspected using the JLCDFM 3D Viewer.</p>
 <p><img alt="JLCDFM 3D View" src="PCB_DFM_3D_RevA1.png" /></p>
 <h3 id="manufacturing-status">Manufacturing Status</h3>
-<ul>
-<li>Gerber and NC Drill files: Generated</li>
-<li>Initial DFM analysis: Completed</li>
-<li>Silkscreen issues: Pending correction or approval</li>
-<li>Final manufacturing approval: Pending</li>
-</ul>
-<p><strong>Note:</strong> These files are provided for team review.
-The final DFM results must be verified before
-placing the manufacturing order.</p>
+<table>
+<thead>
+<tr>
+<th>Manufacturing Item</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PCB Design</td>
+<td>Completed</td>
+</tr>
+<tr>
+<td>KiCad Design Rules Check</td>
+<td>Completed</td>
+</tr>
+<tr>
+<td>Gerber and NC Drill Files</td>
+<td>Generated</td>
+</tr>
+<tr>
+<td>Initial JLCPCB DFM Analysis</td>
+<td>Completed</td>
+</tr>
+<tr>
+<td>PCB Manufacturing</td>
+<td>Completed</td>
+</tr>
+<tr>
+<td>Component Assembly</td>
+<td>In Progress</td>
+</tr>
+<tr>
+<td>Individual Hardware Verification</td>
+<td>In Progress</td>
+</tr>
+<tr>
+<td>Team Integration</td>
+<td>Pending</td>
+</tr>
+</tbody>
+</table>
+<p>The PCB has been manufactured and received for physical assembly and testing.</p>
+<p>The initial DFM analysis identified silkscreen-related warnings. These results are retained as part of the manufacturing documentation.</p>
+<p>Final hardware functionality will be evaluated through subsystem verification.</p>
 <hr />
+<hr />
+<h2 id="10-physical-pcb-assembly">10. Physical PCB Assembly</h2>
+<p>The fabricated PCB integrates the PIC18F57Q43 Curiosity Nano with the power regulation circuit, user controls, status indicators, buzzer driver, and team communication interfaces.</p>
+<p>The physical assembly process includes component placement, polarity verification, soldering, and inspection of electrical connections.</p>
+<h3 id="assembled-pcb-top-view">Assembled PCB — Top View</h3>
+<p><img alt="Assembled PCB Top View" src="PCB_Assembled_Top.jpg" /></p>
+<p><em>Figure: Top view of the fabricated PCB showing the installed components and subsystem interfaces.</em></p>
+<h3 id="assembled-pcb-bottom-view">Assembled PCB — Bottom View</h3>
+<p><img alt="Assembled PCB Bottom View" src="PCB_Assembled_Bottom.jpg" /></p>
+<p><em>Figure: Bottom view of the fabricated PCB showing through-hole solder joints and electrical connections.</em></p>
+<hr />
+<h2 id="11-power-supply-verification">11. Power Supply Verification</h2>
+<p>The power supply verification evaluates the external DC input, fuse protection, regulated 5 V output, and common ground connections.</p>
+<p>TP4 is used as the measurement ground reference after confirming continuity between TP3 and TP4.</p>
+<h3 id="power-verification-results">Power Verification Results</h3>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Measurement Points</th>
+<th>Expected Result</th>
+<th>Measured Result</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Fused Input Voltage</td>
+<td>TP1 - TP4</td>
+<td>Applied DC input voltage</td>
+<td>TBD</td>
+<td>Pass</td>
+</tr>
+<tr>
+<td>Regulated Output</td>
+<td>TP2 - TP4</td>
+<td>Approximately 5 V</td>
+<td>TBD</td>
+<td>Pass</td>
+</tr>
+<tr>
+<td>Ground Continuity</td>
+<td>TP3 - TP4</td>
+<td>Continuity</td>
+<td>TBD</td>
+<td>Pass</td>
+</tr>
+<tr>
+<td>Supply Short Check</td>
+<td>TP2 - TP4</td>
+<td>No short circuit</td>
+<td>TBD</td>
+<td>Pass</td>
+</tr>
+<tr>
+<td>Team Connector Ground</td>
+<td>J2 GND - TP4</td>
+<td>Continuity</td>
+<td>TBD</td>
+<td>Pass</td>
+</tr>
+<tr>
+<td>Nano Target Voltage</td>
+<td>VTG - GND</td>
+<td>Approximately 5 V</td>
+<td>TBD</td>
+<td>Pass</td>
+</tr>
+</tbody>
+</table>
+<p>Continuity and resistance measurements are performed with the external power supply and USB connection disconnected.</p>
+<p>The measured results will be recorded following physical hardware verification.</p>
+<hr />
+<h2 id="12-subsystem-functional-verification">12. Subsystem Functional Verification</h2>
+<p>The individual subsystem verification evaluates the physical implementation of the user controls, safety monitoring, speed adjustment, status indicators, and audible warning functions.</p>
+<h3 id="emergency-stop-and-safety-control">Emergency Stop and Safety Control</h3>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Expected Result</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Normal E-Stop Condition</td>
+<td>E_STOP signal LOW</td>
+<td>Pending</td>
+</tr>
+<tr>
+<td>Triggered E-Stop Condition</td>
+<td>E_STOP signal HIGH</td>
+<td>Pending</td>
+</tr>
+<tr>
+<td>Safety Output</td>
+<td>SAFE_OK changes according to the safety condition</td>
+<td>Pending</td>
+</tr>
+<tr>
+<td>Run Request</td>
+<td>RUN_REQ is disabled during an E-Stop condition</td>
+<td>Pending</td>
+</tr>
+</tbody>
+</table>
+<p><img alt="Emergency Stop Verification" src="EStop_Triggered.jpg" /></p>
+<h3 id="startpause-control">Start/Pause Control</h3>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Expected Result</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SW2 Released</td>
+<td>Digital input HIGH</td>
+<td>Pending</td>
+</tr>
+<tr>
+<td>SW2 Pressed</td>
+<td>Digital input LOW</td>
+<td>Pending</td>
+</tr>
+<tr>
+<td>Run/Pause Command</td>
+<td>Firmware updates the requested operating state</td>
+<td>Pending</td>
+</tr>
+</tbody>
+</table>
+<p><img alt="Start and Pause Verification" src="Start_Pause_Test.jpg" /></p>
+<h3 id="speed-adjustment-and-analog-verification">Speed Adjustment and Analog Verification</h3>
+<p>The potentiometer RV1 generates an adjustable analog input voltage for the RA0 ADC channel.</p>
+<p>The microcontroller processes the speed request and generates an analog speed command through the RA2 DAC output.</p>
+<table>
+<thead>
+<tr>
+<th>Test Point</th>
+<th>Signal</th>
+<th>Expected Result</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TP6</td>
+<td>POT_ADC</td>
+<td>Adjustable analog voltage</td>
+<td>Pending</td>
+</tr>
+<tr>
+<td>TP7</td>
+<td>GRIP_FORCE</td>
+<td>Analog feedback input</td>
+<td>Pending</td>
+</tr>
+<tr>
+<td>TP8</td>
+<td>SPEED_SET</td>
+<td>Adjustable DAC output voltage</td>
+<td>Pending</td>
+</tr>
+</tbody>
+</table>
+<p><img alt="Potentiometer Minimum Voltage" src="Pot_ADC_Min.jpg" /></p>
+<p><img alt="Potentiometer Maximum Voltage" src="Pot_ADC_Max.jpg" /></p>
+<p><img alt="DAC Output Verification" src="DAC_Output_Test.jpg" /></p>
+<h3 id="buzzer-verification">Buzzer Verification</h3>
+<p>The RC4 PWM output controls the ULN2003A driver circuit to generate an audible warning.</p>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Expected Result</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PWM Frequency</td>
+<td>Approximately 4 kHz</td>
+<td>Pending</td>
+</tr>
+<tr>
+<td>Buzzer Enabled</td>
+<td>Audible warning</td>
+<td>Pending</td>
+</tr>
+<tr>
+<td>Buzzer Disabled</td>
+<td>No audible warning</td>
+<td>Pending</td>
+</tr>
+</tbody>
+</table>
+<p><img alt="Buzzer PWM Verification" src="Buzzer_PWM_Test.jpg" /></p>
+<p>The final subsystem verification results will be updated following physical testing and instructor evaluation.</p>
+<h3 id="physical-assembly-inspection">Physical Assembly Inspection</h3>
+<p>The following items are inspected during the hardware assembly process:</p>
+<ul>
+<li>Component placement and orientation</li>
+<li>LED and capacitor polarity</li>
+<li>L7805 voltage regulator orientation</li>
+<li>ULN2003A driver orientation</li>
+<li>Curiosity Nano alignment</li>
+<li>Connector installation</li>
+<li>Solder joint quality</li>
+<li>Possible solder bridges and electrical shorts</li>
+<li>Student identification on the PCB</li>
+</ul>
 <h3 id="revision-a1-changes">Revision A.1 Changes</h3>
 <ul>
 <li>Added TP7 to the GRIP_FORCE signal.</li>
@@ -1323,17 +1701,29 @@ placing the manufacturing order.</p>
 <li>Repeated design verification after the modification.</li>
 </ul>
 <hr />
-<h2 id="9-future-improvements">9. Future Improvements</h2>
-<p>Revision A.1 represents an updated PCB design prepared for instructor and TA review.</p>
-<p>The board has not yet been manufactured or physically tested.</p>
-<p>Future work includes:</p>
+<hr />
+<h2 id="current-status-and-future-improvements">Current Status and Future Improvements</h2>
+<p>PCB Revision A.1 has progressed from the design and manufacturing stage to physical hardware assembly and individual subsystem verification.</p>
+<p>The remaining work includes:</p>
 <ol>
-<li>Reviewing instructor and TA feedback.</li>
-<li>Confirming component footprints and physical dimensions.</li>
-<li>Verifying final component specifications.</li>
-<li>Making any required PCB revisions.</li>
-<li>Preparing manufacturing files after design approval.</li>
+<li>Completing component assembly and solder joint inspection.</li>
+<li>Recording measured power supply voltages.</li>
+<li>Verifying microcontroller programming and GPIO operation.</li>
+<li>Testing emergency-stop and start/pause functionality.</li>
+<li>Verifying ADC, DAC, and PWM operation.</li>
+<li>Evaluating the team communication interface.</li>
+<li>Completing the instructor-required subsystem check-off.</li>
+<li>Integrating the subsystem with the other robotic subsystems.</li>
+<li>Updating the schematic, PCB, and firmware documentation if hardware modifications are required.</li>
 </ol>
+<p>The final hardware verification results will be documented after testing.</p>
+<h2 id="related-documentation">Related Documentation</h2>
+<ul>
+<li><a href="../01-Block-Diagram/">Individual Block Diagram</a></li>
+<li><a href="../04-Schematic/schematic/">Schematic</a></li>
+<li><a href="../06-MCC-Configuration/index%20%281%29/">MCC Configuration</a></li>
+<li><a href="https://egr304-2026-f-107.github.io/EGR304-2026-F-107.github.io/">Team 107 Project Website</a></li>
+</ul>
 
 
 
