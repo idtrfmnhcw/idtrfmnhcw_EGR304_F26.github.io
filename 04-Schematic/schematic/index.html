@@ -839,9 +839,27 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#subsystem-functional-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Subsystem Functional Summary
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#design-revision" class="md-nav__link">
     <span class="md-ellipsis">
       Design Revision
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hardware-implementation-status" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hardware Implementation Status
     </span>
   </a>
   
@@ -1264,9 +1282,27 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#subsystem-functional-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Subsystem Functional Summary
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#design-revision" class="md-nav__link">
     <span class="md-ellipsis">
       Design Revision
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hardware-implementation-status" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hardware Implementation Status
     </span>
   </a>
   
@@ -1483,12 +1519,119 @@
 <p>J5 provides access to the external 5 V supply, ground, and spare GPIO connections for future expansion.</p>
 <p>Test points are included at selected circuit nodes to support voltage measurements, debugging, and signal verification during hardware testing.</p>
 <p>These features improve the flexibility and maintainability of the subsystem during development.</p>
+<h2 id="subsystem-functional-summary">Subsystem Functional Summary</h2>
+<p>The following table summarizes the major functions implemented by the User Controls and Safety Subsystem.</p>
+<table>
+<thead>
+<tr>
+<th>Functional Block</th>
+<th>Components / Interface</th>
+<th>PIC Pin</th>
+<th>Main Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Power Regulation</td>
+<td>J1, F1, U2</td>
+<td>N/A</td>
+<td>Generates the regulated external 5 V supply.</td>
+</tr>
+<tr>
+<td>Emergency Stop</td>
+<td>SW1, J6</td>
+<td>RB0</td>
+<td>Detects an emergency-stop request.</td>
+</tr>
+<tr>
+<td>Start/Pause</td>
+<td>SW2</td>
+<td>RB1</td>
+<td>Receives the user operating command.</td>
+</tr>
+<tr>
+<td>Speed Adjustment</td>
+<td>RV1</td>
+<td>RA0</td>
+<td>Reads the requested speed through the ADC.</td>
+</tr>
+<tr>
+<td>Speed Command</td>
+<td>J2</td>
+<td>RA2</td>
+<td>Generates the analog speed command through the DAC.</td>
+</tr>
+<tr>
+<td>Green LED</td>
+<td>D1</td>
+<td>RB2</td>
+<td>Indicates operating status.</td>
+</tr>
+<tr>
+<td>Red LED</td>
+<td>D2</td>
+<td>RB3</td>
+<td>Indicates warning or stop status.</td>
+</tr>
+<tr>
+<td>Debug LED</td>
+<td>D3</td>
+<td>RF2</td>
+<td>Supports hardware and firmware testing.</td>
+</tr>
+<tr>
+<td>Buzzer Driver</td>
+<td>U3, JP1, BZ1</td>
+<td>RC4</td>
+<td>Generates an audible warning using PWM control.</td>
+</tr>
+<tr>
+<td>Team Communication</td>
+<td>J2</td>
+<td>RD0-RD4, RA1, RA2</td>
+<td>Exchanges commands and feedback with other subsystems.</td>
+</tr>
+<tr>
+<td>UART Communication</td>
+<td>J3, J4</td>
+<td>RC2, RC3</td>
+<td>Provides serial communication and debugging.</td>
+</tr>
+<tr>
+<td>Debug Input</td>
+<td>SW3</td>
+<td>RE0</td>
+<td>Provides an additional hardware test input.</td>
+</tr>
+<tr>
+<td>Expansion Interface</td>
+<td>J5</td>
+<td>Spare GPIO</td>
+<td>Provides additional connection points.</td>
+</tr>
+</tbody>
+</table>
+<p>The hardware verification process evaluates the implementation of these functional blocks on the fabricated PCB.</p>
+<p>For detailed peripheral configurations, refer to the <a href="../../06-MCC-Configuration/index%20%281%29/">MCC Configuration</a> page.</p>
 <h2 id="design-revision">Design Revision</h2>
 <p><strong>Revision A:</strong> Initial schematic using a 2N3904 transistor for buzzer switching.</p>
 <p><strong>Revision B:</strong> Updated buzzer driver using a ULN2003A driver IC in response to instructor feedback.</p>
 <p><strong>Revision C:</strong> Reorganized the schematic using descriptive net labels, separated functional circuit blocks, and clarified microcontroller signal connections to improve readability and maintainability.</p>
 <p>The revised schematic has passed KiCad Electrical Rules Check (ERC).</p>
-<p>Physical testing, final component verification, and system-level validation remain part of the hardware implementation process.</p>
+<h2 id="hardware-implementation-status">Hardware Implementation Status</h2>
+<p>The PCB has been manufactured, and component assembly and individual subsystem hardware verification are in progress.</p>
+<p>The schematic serves as the reference for component installation, power measurements, signal tracing, and microcontroller configuration.</p>
+<p>The hardware verification process includes:</p>
+<ul>
+<li>Power supply verification</li>
+<li>Microcontroller programming</li>
+<li>GPIO input and output testing</li>
+<li>ADC and DAC verification</li>
+<li>PWM buzzer testing</li>
+<li>Team interface verification</li>
+</ul>
+<p>Any hardware modifications identified during assembly and testing will be reflected in the schematic and PCB documentation.</p>
+<p>Detailed hardware verification results are documented on the <a href="../../07-PCB-Design/">PCB Design</a> page.</p>
 <h2 id="resources">Resources</h2>
 <ul>
 <li><a href="../EGR304_User_Controls_Schematic_RevC.pdf">Download Schematic RevC PDF</a></li>
