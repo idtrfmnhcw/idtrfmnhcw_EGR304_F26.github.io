@@ -209,13 +209,13 @@ The physical assembly process includes component placement, polarity verificatio
 
 ### Assembled PCB — Top View
 
-![Assembled PCB Top View](PCB_Assembled_Top.jpg)
+![Assembled PCB Top View](PCB_Assembled_Top.jpeg)
 
 *Figure: Top view of the fabricated PCB showing the installed components and subsystem interfaces.*
 
 ### Assembled PCB — Bottom View
 
-![Assembled PCB Bottom View](PCB_Assembled_Bottom.jpg)
+![Assembled PCB Bottom View](PCB_Assembled_Bottom.jpeg)
 
 *Figure: Bottom view of the fabricated PCB showing through-hole solder joints and electrical connections.*
 
@@ -262,7 +262,7 @@ The individual subsystem verification evaluates the physical implementation of t
 | Safety Output | SAFE_OK changes according to the safety condition | Pending |
 | Run Request | RUN_REQ is disabled during an E-Stop condition | Pending |
 
-![Emergency Stop Verification](EStop_Triggered.jpg)
+
 
 ### Start/Pause Control
 
@@ -272,7 +272,7 @@ The individual subsystem verification evaluates the physical implementation of t
 | SW2 Pressed | Digital input LOW | Pending |
 | Run/Pause Command | Firmware updates the requested operating state | Pending |
 
-![Start and Pause Verification](Start_Pause_Test.jpg)
+
 
 ### Speed Adjustment and Analog Verification
 
@@ -286,11 +286,7 @@ The microcontroller processes the speed request and generates an analog speed co
 | TP7 | GRIP_FORCE | Analog feedback input | Pending |
 | TP8 | SPEED_SET | Adjustable DAC output voltage | Pending |
 
-![Potentiometer Minimum Voltage](Pot_ADC_Min.jpg)
 
-![Potentiometer Maximum Voltage](Pot_ADC_Max.jpg)
-
-![DAC Output Verification](DAC_Output_Test.jpg)
 
 ### Buzzer Verification
 
@@ -302,7 +298,7 @@ The RC4 PWM output controls the ULN2003A driver circuit to generate an audible w
 | Buzzer Enabled | Audible warning | Pending |
 | Buzzer Disabled | No audible warning | Pending |
 
-![Buzzer PWM Verification](Buzzer_PWM_Test.jpg)
+
 
 The final subsystem verification results will be updated following physical testing and instructor evaluation.
 
