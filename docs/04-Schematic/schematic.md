@@ -100,33 +100,65 @@ Unused input channels are also connected to a defined LOW state.
 
 The final buzzer drive method, operating voltage, and audible output will be verified against the selected component's datasheet during hardware testing.
 
+
 ### 7. Team Communication
 
-J2 provides an eight-pin interface for communication with the other robotic subsystems.
+The User Controls and Safety Subsystem communicates with other robotic subsystems through the J2 team interface connector and the additional UART connectors.
 
-The interface includes the following signals:
+The communication interfaces are designed to exchange safety conditions, operating commands, speed references, and feedback signals.
 
-SAFE_OK
+#### J2 — Team Interface
 
-RUN_REQ
+J2 provides an eight-pin interface containing digital control signals, analog signals, and a common ground reference.
 
-GRIP_CMD
+| Signal | PIC Pin | Direction | Signal Type | Function |
+|---|---|---|---|---|
+| SAFE_OK | RD0 | Output | Digital | Indicates whether the safety conditions permit system operation. |
+| RUN_REQ | RD1 | Output | Digital | Sends the requested run or pause state. |
+| GRIP_CMD | RD2 | Output | Digital | Sends a gripper operation command. |
+| OBJ_HELD | RD3 | Input | Digital | Receives feedback indicating whether an object is held. |
+| ARM_IN_POS | RD4 | Input | Digital | Receives feedback indicating whether the robotic arm has reached its required position. |
+| SPEED_SET | RA2 | Output | Analog (DAC) | Provides the requested operating speed as an analog voltage. |
+| GRIP_FORCE | RA1 | Input | Analog (ADC) | Receives the gripper force feedback voltage. |
+| GND | GND | Reference | Ground | Provides a common voltage reference between subsystems. |
 
-OBJ_HELD
+All signal directions are defined relative to the User Controls and Safety Subsystem.
 
-ARM_IN_POS
+The digital signals communicate operating commands and system status. The analog signals provide speed-control and grip-force information.
 
-SPEED_SET
+The final signal definitions and connector assignments must remain consistent with the team connection table.
 
-GRIP_FORCE
+#### UART Communication
 
-GND
+J3 and J4 provide additional UART communication connections for debugging and subsystem communication.
 
-The SPEED_SET signal is generated through the microcontroller's RA2 output, while GRIP_FORCE is connected to RA1 for analog measurement.
+| Signal | PIC Pin | Direction | Function |
+|---|---|---|---|
+| UART_TX | RC2 | Output | Transmits serial data. |
+| UART_RX | RC3 | Input | Receives serial data. |
 
-J3 and J4 provide additional UART communication interfaces using the microcontroller's RC3 and RC2 connections.
+The UART1 peripheral is configured with the following parameters:
 
-These connectors allow the user-control subsystem to exchange operating commands and status information with the other subsystems.
+- Baud rate: 9600 bps
+- Data bits: 8
+- Parity: None
+- Stop bits: 1
+- Hardware flow control: None
+
+UART communication and the J2 digital/analog interface are separate communication methods.
+
+#### MCC Configuration Reference
+
+The microcontroller pin assignments, GPIO settings, ADC, DAC, UART, and PWM configurations are documented on the following page:
+
+[View MCC Configuration](../06-MCC-Configuration/index%20%281%29.md)
+
+#### Team Documentation
+
+[Team 107 Project Website](https://egr304-2026-f-107.github.io/EGR304-2026-F-107.github.io/)
+
+The team connection table should be used as the reference for final subsystem integration.
+
 
 ### 8. Debugging and Expansion
 
