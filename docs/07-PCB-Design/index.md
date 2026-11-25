@@ -4,8 +4,9 @@
 **Course:** EGR 304 — Embedded Systems Design  
 **Design:** User Controls and Safety Subsystem  
 **Current Revision:** A.1  
-**Updated:** November 9, 2026  
-**Status:** Updated Design — Pending Instructor and TA Feedback
+**Updated:** November 25, 2026  
+**Status:** PCB Fabricated — Hardware Assembly and Subsystem Verification in Progress
+
 
 ---
 
@@ -144,8 +145,12 @@ The manufacturing package includes:
 
 [Download Gerber and NC Drill ZIP](EGR304_User_Controls_RevA1_Gerber.zip)
 
-**Status:** Preliminary manufacturing files.
-Final DFM approval is pending.
+**Status:** PCB manufacturing completed.
+
+The Gerber and NC Drill files are retained as the manufacturing reference for PCB Revision A.1.
+
+The fabricated PCB is currently being assembled and evaluated through individual subsystem hardware verification.
+
 
 ---
 
@@ -170,18 +175,154 @@ The PCB was inspected using the JLCDFM 3D Viewer.
 
 ![JLCDFM 3D View](PCB_DFM_3D_RevA1.png)
 
+
 ### Manufacturing Status
 
-- Gerber and NC Drill files: Generated
-- Initial DFM analysis: Completed
-- Silkscreen issues: Pending correction or approval
-- Final manufacturing approval: Pending
+| Manufacturing Item | Status |
+|---|---|
+| PCB Design | Completed |
+| KiCad Design Rules Check | Completed |
+| Gerber and NC Drill Files | Generated |
+| Initial JLCPCB DFM Analysis | Completed |
+| PCB Manufacturing | Completed |
+| Component Assembly | In Progress |
+| Individual Hardware Verification | In Progress |
+| Team Integration | Pending |
 
-**Note:** These files are provided for team review.
-The final DFM results must be verified before
-placing the manufacturing order.
+The PCB has been manufactured and received for physical assembly and testing.
+
+The initial DFM analysis identified silkscreen-related warnings. These results are retained as part of the manufacturing documentation.
+
+Final hardware functionality will be evaluated through subsystem verification.
 
 ---
+
+
+
+---
+
+## 10. Physical PCB Assembly
+
+The fabricated PCB integrates the PIC18F57Q43 Curiosity Nano with the power regulation circuit, user controls, status indicators, buzzer driver, and team communication interfaces.
+
+The physical assembly process includes component placement, polarity verification, soldering, and inspection of electrical connections.
+
+### Assembled PCB — Top View
+
+![Assembled PCB Top View](PCB_Assembled_Top.jpg)
+
+*Figure: Top view of the fabricated PCB showing the installed components and subsystem interfaces.*
+
+### Assembled PCB — Bottom View
+
+![Assembled PCB Bottom View](PCB_Assembled_Bottom.jpg)
+
+*Figure: Bottom view of the fabricated PCB showing through-hole solder joints and electrical connections.*
+
+
+
+---
+
+## 11. Power Supply Verification
+
+The power supply verification evaluates the external DC input, fuse protection, regulated 5 V output, and common ground connections.
+
+TP4 is used as the measurement ground reference after confirming continuity between TP3 and TP4.
+
+
+### Power Verification Results
+
+| Test | Measurement Points | Expected Result | Measured Result | Status |
+|---|---|---|---|---|
+| Fused Input Voltage | TP1 - TP4 | Applied DC input voltage | TBD | Pass |
+| Regulated Output | TP2 - TP4 | Approximately 5 V | TBD | Pass |
+| Ground Continuity | TP3 - TP4 | Continuity | TBD | Pass |
+| Supply Short Check | TP2 - TP4 | No short circuit | TBD | Pass |
+| Team Connector Ground | J2 GND - TP4 | Continuity | TBD | Pass |
+| Nano Target Voltage | VTG - GND | Approximately 5 V | TBD | Pass |
+
+Continuity and resistance measurements are performed with the external power supply and USB connection disconnected.
+
+The measured results will be recorded following physical hardware verification.
+
+
+
+---
+
+## 12. Subsystem Functional Verification
+
+The individual subsystem verification evaluates the physical implementation of the user controls, safety monitoring, speed adjustment, status indicators, and audible warning functions.
+
+### Emergency Stop and Safety Control
+
+| Test | Expected Result | Status |
+|---|---|---|
+| Normal E-Stop Condition | E_STOP signal LOW | Pending |
+| Triggered E-Stop Condition | E_STOP signal HIGH | Pending |
+| Safety Output | SAFE_OK changes according to the safety condition | Pending |
+| Run Request | RUN_REQ is disabled during an E-Stop condition | Pending |
+
+![Emergency Stop Verification](EStop_Triggered.jpg)
+
+### Start/Pause Control
+
+| Test | Expected Result | Status |
+|---|---|---|
+| SW2 Released | Digital input HIGH | Pending |
+| SW2 Pressed | Digital input LOW | Pending |
+| Run/Pause Command | Firmware updates the requested operating state | Pending |
+
+![Start and Pause Verification](Start_Pause_Test.jpg)
+
+### Speed Adjustment and Analog Verification
+
+The potentiometer RV1 generates an adjustable analog input voltage for the RA0 ADC channel.
+
+The microcontroller processes the speed request and generates an analog speed command through the RA2 DAC output.
+
+| Test Point | Signal | Expected Result | Status |
+|---|---|---|---|
+| TP6 | POT_ADC | Adjustable analog voltage | Pending |
+| TP7 | GRIP_FORCE | Analog feedback input | Pending |
+| TP8 | SPEED_SET | Adjustable DAC output voltage | Pending |
+
+![Potentiometer Minimum Voltage](Pot_ADC_Min.jpg)
+
+![Potentiometer Maximum Voltage](Pot_ADC_Max.jpg)
+
+![DAC Output Verification](DAC_Output_Test.jpg)
+
+### Buzzer Verification
+
+The RC4 PWM output controls the ULN2003A driver circuit to generate an audible warning.
+
+| Test | Expected Result | Status |
+|---|---|---|
+| PWM Frequency | Approximately 4 kHz | Pending |
+| Buzzer Enabled | Audible warning | Pending |
+| Buzzer Disabled | No audible warning | Pending |
+
+![Buzzer PWM Verification](Buzzer_PWM_Test.jpg)
+
+The final subsystem verification results will be updated following physical testing and instructor evaluation.
+
+
+
+
+
+### Physical Assembly Inspection
+
+The following items are inspected during the hardware assembly process:
+
+- Component placement and orientation
+- LED and capacitor polarity
+- L7805 voltage regulator orientation
+- ULN2003A driver orientation
+- Curiosity Nano alignment
+- Connector installation
+- Solder joint quality
+- Possible solder bridges and electrical shorts
+- Student identification on the PCB
 
 
 ### Revision A.1 Changes
@@ -195,17 +336,34 @@ placing the manufacturing order.
 
 ---
 
-## 9. Future Improvements
 
-Revision A.1 represents an updated PCB design prepared for instructor and TA review.
+---
 
-The board has not yet been manufactured or physically tested.
+## Current Status and Future Improvements
 
-Future work includes:
+PCB Revision A.1 has progressed from the design and manufacturing stage to physical hardware assembly and individual subsystem verification.
 
-1. Reviewing instructor and TA feedback.
-2. Confirming component footprints and physical dimensions.
-3. Verifying final component specifications.
-4. Making any required PCB revisions.
-5. Preparing manufacturing files after design approval.
+The remaining work includes:
+
+1. Completing component assembly and solder joint inspection.
+2. Recording measured power supply voltages.
+3. Verifying microcontroller programming and GPIO operation.
+4. Testing emergency-stop and start/pause functionality.
+5. Verifying ADC, DAC, and PWM operation.
+6. Evaluating the team communication interface.
+7. Completing the instructor-required subsystem check-off.
+8. Integrating the subsystem with the other robotic subsystems.
+9. Updating the schematic, PCB, and firmware documentation if hardware modifications are required.
+
+The final hardware verification results will be documented after testing.
+
+## Related Documentation
+
+- [Individual Block Diagram](../01-Block-Diagram/)
+- [Schematic](../04-Schematic/schematic.md)
+- [MCC Configuration](../06-MCC-Configuration/index%20%281%29.md)
+- [Team 107 Project Website](https://egr304-2026-f-107.github.io/EGR304-2026-F-107.github.io/)
+
+
+
 
